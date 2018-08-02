@@ -17,11 +17,11 @@ This project is dedicated to develop an object-oriented parallel C++ code that c
  * Two and three dimensional simulations
    (with spatial material characterization)
  * Sources:
- * * Point Sources
- * * Plane Wavefront Sources
+   * Point Sources
+   * Plane Wavefront Sources
  * Boundary Conditions:
- * * Perfect Electric Conductor (PEC) boundary which relfects any scattered back into the domain
- * * Absorbing Boundary Condition using Perfectly Matched Layer
+   * Perfect Electric Conductor (PEC) boundary which relfects any scattered back into the domain
+   * Absorbing Boundary Condition using Perfectly Matched Layer
 
  Further work on development of this library is going on. We welcome collaborations in developing the code further. Interested people can directly write to [Prof. Mahendra Verma](mailto:mkv@iitk.ac.in).
 
