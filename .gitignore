@@ -1,0 +1,8 @@
+luxum
+anim/
+build/
+image_read/
+*.h5
+*.png
+*.py
+
