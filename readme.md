@@ -1,4 +1,22 @@
-**Luxum** is a parallel, C++ based Finite Difference Time Domain solver for
+LLLLLLLLLLL                                                                                             
+L:::::::::L
+L:::::::::L
+LL:::::::LL
+  L:::::L               uuuuuu    uuuuuu  xxxxxxx      xxxxxxxuuuuuu    uuuuuu     mmmmmmm    mmmmmmm
+  L:::::L               u::::u    u::::u   x:::::x    x:::::x u::::u    u::::u   mm:::::::m  m:::::::mm
+  L:::::L               u::::u    u::::u    x:::::x  x:::::x  u::::u    u::::u  m::::::::::mm::::::::::m
+  L:::::L               u::::u    u::::u     x:::::xx:::::x   u::::u    u::::u  m::::::::::::::::::::::m
+  L:::::L               u::::u    u::::u      x::::::::::x    u::::u    u::::u  m:::::mmm::::::mmm:::::m
+  L:::::L               u::::u    u::::u       x::::::::x     u::::u    u::::u  m::::m   m::::m   m::::m
+  L:::::L               u::::u    u::::u       x::::::::x     u::::u    u::::u  m::::m   m::::m   m::::m
+  L:::::L         LLLLLLu:::::uuuu:::::u      x::::::::::x    u:::::uuuu:::::u  m::::m   m::::m   m::::m
+LL:::::::LLLLLLLLL:::::Lu:::::::::::::::uu   x:::::xx:::::x   u:::::::::::::::uum::::m   m::::m   m::::m
+L::::::::::::::::::::::L u:::::::::::::::u  x:::::x  x:::::x   u:::::::::::::::um::::m   m::::m   m::::m
+L::::::::::::::::::::::L  uu::::::::uu:::u x:::::x    x:::::x   uu::::::::uu:::um::::m   m::::m   m::::m
+LLLLLLLLLLLLLLLLLLLLLLLL    uuuuuuuu  uuuuxxxxxxx      xxxxxxx    uuuuuuuu  uuuummmmmm   mmmmmm   mmmmmm
+
+
+is a parallel, C++ based Finite Difference Time Domain solver for
 Maxwell's equation.
 
 
