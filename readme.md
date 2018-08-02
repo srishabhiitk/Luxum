@@ -2,7 +2,7 @@
 Maxwell's equation.
 
 
-#Introduction
+# Introduction
 The interest in time-stepping solutions of electromagnetic fields using Maxwell’s equations was spurred by development of microwave radar technology and it remained the prime motivation until 1990. During this time, development of stealth aircrafts and even better radar technology was of paramount importance. However, as time passed many other applications came to light. They ranged from designing photonic crystals and low power optical switches to early stage detection of breast cancer and observing cell phone radiation interaction with human head.
 
 FDTD solutions have been around for several decades and various softwares from free open-source licenses to expensive ones exist now. These softwares cover a variety of range of applications, however, an FDTD library that is designed around parallelizability to tackle extremely large simulations using supercomputers is still missing.
@@ -12,7 +12,7 @@ In this project, we develop a C++ library that feature near ideal parallelizabil
 For further details on code developement of this project, please refer to [FDTD Solver library](http://http://turbulencehub.org/index.php/codes/fdtd-solver/).
 
 
-#Code
+# Code
 This project is dedicated to develop an object-oriented parallel C++ code that can simulate electromagnetic waves using Finite Difference Time Domain scheme. At the current stage, the developed library supports a number of features,
  * Two and three dimensional simulations
    (with spatial material characterization)
