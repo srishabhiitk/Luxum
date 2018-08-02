@@ -1,0 +1,59 @@
+﻿
+{   #Type of Solution
+    "isPlanar": true
+}
+
+{   # Dimensions of the domain
+    "X Length": 1002,
+    "Y Length": 1,
+    "Z Length": 1002,
+
+
+    "X Resolution": 0.001,
+    "Y Resolution": 0,
+    "Z Resolution": 0.001,
+
+    "Courant factor": 0.70710678118,
+
+    "Number of timesteps": 2000,
+}
+
+{   # Parellelization parameters
+    "X Number of Procs": 2,
+    "Y Number of Procs": 1,
+    "Number of Threads per node": 1
+}
+
+
+{   # Sources
+    "usePointSource": false,
+    "Source X Pos": 0,
+    "Source Y Pos": 0,
+    "Source Z Pos": 0,
+    "Source Amplitude": 0,
+    "Source Omega": 0,
+    "usePW": true,
+    "kx_pw": 0.70710678118,
+    "ky_pw": 0,
+    "kz_pw": 0.70710678118,
+    "Ex_pw": 0,
+    "Ey_pw": 1,
+    "Ez_pw": 0,
+    "off_pw": 50,
+    "x1_pw": 20,
+    "y1_pw": 20,
+    "z1_pw": 20,
+    "x2_pw": 980,
+    "y2_pw": 980,
+    "z2_pw": 980,
+}
+
+{   # Boundary Conditions
+    "usePML": false,
+    "Thickness of PML": 0.01,
+    "sigma_max/sigma_optimal": 0.65,
+    "m value of sigma": 3,
+    "kappa max": 15,
+    "max value of a": 0,
+    "m value for a": 1,
+}
