@@ -17,7 +17,7 @@ FDTD solutions have been around for several decades and various softwares from f
 
 In this project, we develop a C++ library that feature near ideal parallelizability along with other general FDTD features such as support for plane-wave sources and PML absorbing boundary condition. We have also implemented support for parallel file reading and writing for efficient IO using HDF5 library. Further, many companions codes are developed that work along with library for plotting, generating animations and reading images to input material shapes.
 
-For further details on code developement of this project, please refer to [FDTD Solver library](http://http://turbulencehub.org/index.php/codes/fdtd-solver/).
+For further details on code developement of this project, please refer to [FDTD Solver library](http://turbulencehub.org/index.php/codes/fdtd-solver/).
 
 
 # Code
