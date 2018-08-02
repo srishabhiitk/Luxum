@@ -1,0 +1,117 @@
+\hypertarget{classfield}{}\section{field Class Reference}
+\label{classfield}\index{field@{field}}
+
+
+A class which abstracts concept of a scalar field for Yee\textquotesingle{}s algorithm.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/field.\+h\char`\"{}}
+
+
+
+Collaboration diagram for field\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classfield__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfield_a1bcb8dac73d53d1fe2dc63a5d5372d48}{field} (const \hyperlink{classgrid}{grid} \&\hyperlink{classfield_a99eb1330d0129bf1e85ca4b26feff704}{grid\+Data}, bool x\+Stag\+\_\+, bool y\+Stag\+\_\+, bool z\+Stag\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor of the field class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+blitz\+::\+Array$<$ double, 3 $>$ \hyperlink{classfield_a561c353aad1c91c9d038de482a279d2b}{F}
+\item 
+bool \hyperlink{classfield_a4d1be454f3b483fb3f8da288707444f5}{x\+Stag}
+\item 
+bool \hyperlink{classfield_a703fbdda5fa225af078af1d4dfedeeda}{y\+Stag}
+\item 
+bool \hyperlink{classfield_aa69f393bb8e443c1f4c4eb845a822539}{z\+Stag}
+\item 
+int \hyperlink{classfield_a5a48dd8a119d060d07c5b4c64ce36211}{local\+\_\+\+Nx}
+\item 
+int \hyperlink{classfield_a19e5e4f47cd9471b1edf7cf3b059a736}{local\+\_\+\+Ny}
+\item 
+int \hyperlink{classfield_ac0e32c0b780aa74c30bacbc90c0fbeaf}{local\+\_\+\+Nz}
+\item 
+const \hyperlink{classgrid}{grid} \& \hyperlink{classfield_a99eb1330d0129bf1e85ca4b26feff704}{grid\+Data}
+\item 
+\hyperlink{classmpidata}{mpidata} $\ast$ \hyperlink{classfield_adb31d61800661fceb68b660bd50641fb}{mpi\+Handle}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which abstracts concept of a scalar field for Yee\textquotesingle{}s algorithm. 
+
+Yee\textquotesingle{}s algorithm requires different lattice positions for different components of E field and H field. These positions are represented by three boolean variables that keep track of whether the field component is staggered in X, Y and Z direction. Additionally, the class contains information about the array size of scalar field and constant reference to grid information. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{field@{field}!field@{field}}
+\index{field@{field}!field@{field}}
+\subsubsection[{\texorpdfstring{field(const grid \&grid\+Data, bool x\+Stag\+\_\+, bool y\+Stag\+\_\+, bool z\+Stag\+\_\+)}{field(const grid &gridData, bool xStag_, bool yStag_, bool zStag_)}}]{\setlength{\rightskip}{0pt plus 5cm}field\+::field (
+\begin{DoxyParamCaption}
+\item[{const {\bf grid} \&}]{grid\+Data, }
+\item[{bool}]{x\+Stag\+\_\+, }
+\item[{bool}]{y\+Stag\+\_\+, }
+\item[{bool}]{z\+Stag\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{classfield_a1bcb8dac73d53d1fe2dc63a5d5372d48}{}\label{classfield_a1bcb8dac73d53d1fe2dc63a5d5372d48}
+
+
+Constructor of the field class. 
+
+Initializes the data members using the input parameters and grid information. Resizes the Blitz array to required size and then initializes each element of array to zero. Also, initializes the M\+PI handle by calling the mpidata class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Data} & is a constant reference to grid information. \\
+\hline
+{\em x\+Stag\+\_\+} & is a boolean representing whether the field is staggered in X direction. \\
+\hline
+{\em y\+Stag\+\_\+} & is a boolean representing whether the field is staggered in Y direction. \\
+\hline
+{\em z\+Stag\+\_\+} & is a boolean representing whether the field is staggered in Z direction. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{field@{field}!F@{F}}
+\index{F@{F}!field@{field}}
+\subsubsection[{\texorpdfstring{F}{F}}]{\setlength{\rightskip}{0pt plus 5cm}blitz\+::\+Array$<$double, 3$>$ field\+::F}\hypertarget{classfield_a561c353aad1c91c9d038de482a279d2b}{}\label{classfield_a561c353aad1c91c9d038de482a279d2b}
+The blitz array that contains the data of scalar field. \index{field@{field}!grid\+Data@{grid\+Data}}
+\index{grid\+Data@{grid\+Data}!field@{field}}
+\subsubsection[{\texorpdfstring{grid\+Data}{gridData}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf grid}\& field\+::grid\+Data}\hypertarget{classfield_a99eb1330d0129bf1e85ca4b26feff704}{}\label{classfield_a99eb1330d0129bf1e85ca4b26feff704}
+Array size of scalar field in Z direction. \index{field@{field}!local\+\_\+\+Nx@{local\+\_\+\+Nx}}
+\index{local\+\_\+\+Nx@{local\+\_\+\+Nx}!field@{field}}
+\subsubsection[{\texorpdfstring{local\+\_\+\+Nx}{local_Nx}}]{\setlength{\rightskip}{0pt plus 5cm}int field\+::local\+\_\+\+Nx}\hypertarget{classfield_a5a48dd8a119d060d07c5b4c64ce36211}{}\label{classfield_a5a48dd8a119d060d07c5b4c64ce36211}
+Array size of scalar field in X direction. \index{field@{field}!local\+\_\+\+Ny@{local\+\_\+\+Ny}}
+\index{local\+\_\+\+Ny@{local\+\_\+\+Ny}!field@{field}}
+\subsubsection[{\texorpdfstring{local\+\_\+\+Ny}{local_Ny}}]{\setlength{\rightskip}{0pt plus 5cm}int field\+::local\+\_\+\+Ny}\hypertarget{classfield_a19e5e4f47cd9471b1edf7cf3b059a736}{}\label{classfield_a19e5e4f47cd9471b1edf7cf3b059a736}
+Array size of scalar field in X direction. \index{field@{field}!local\+\_\+\+Nz@{local\+\_\+\+Nz}}
+\index{local\+\_\+\+Nz@{local\+\_\+\+Nz}!field@{field}}
+\subsubsection[{\texorpdfstring{local\+\_\+\+Nz}{local_Nz}}]{\setlength{\rightskip}{0pt plus 5cm}int field\+::local\+\_\+\+Nz}\hypertarget{classfield_ac0e32c0b780aa74c30bacbc90c0fbeaf}{}\label{classfield_ac0e32c0b780aa74c30bacbc90c0fbeaf}
+Array size of scalar field in Y direction. \index{field@{field}!mpi\+Handle@{mpi\+Handle}}
+\index{mpi\+Handle@{mpi\+Handle}!field@{field}}
+\subsubsection[{\texorpdfstring{mpi\+Handle}{mpiHandle}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mpidata}$\ast$ field\+::mpi\+Handle}\hypertarget{classfield_adb31d61800661fceb68b660bd50641fb}{}\label{classfield_adb31d61800661fceb68b660bd50641fb}
+M\+PI handle used to sync the field data between different M\+PI nodes. \index{field@{field}!x\+Stag@{x\+Stag}}
+\index{x\+Stag@{x\+Stag}!field@{field}}
+\subsubsection[{\texorpdfstring{x\+Stag}{xStag}}]{\setlength{\rightskip}{0pt plus 5cm}bool field\+::x\+Stag}\hypertarget{classfield_a4d1be454f3b483fb3f8da288707444f5}{}\label{classfield_a4d1be454f3b483fb3f8da288707444f5}
+Boolean representing whether field is scattered in X direction. \index{field@{field}!y\+Stag@{y\+Stag}}
+\index{y\+Stag@{y\+Stag}!field@{field}}
+\subsubsection[{\texorpdfstring{y\+Stag}{yStag}}]{\setlength{\rightskip}{0pt plus 5cm}bool field\+::y\+Stag}\hypertarget{classfield_a703fbdda5fa225af078af1d4dfedeeda}{}\label{classfield_a703fbdda5fa225af078af1d4dfedeeda}
+Boolean representing whether field is scattered in Y direction. \index{field@{field}!z\+Stag@{z\+Stag}}
+\index{z\+Stag@{z\+Stag}!field@{field}}
+\subsubsection[{\texorpdfstring{z\+Stag}{zStag}}]{\setlength{\rightskip}{0pt plus 5cm}bool field\+::z\+Stag}\hypertarget{classfield_aa69f393bb8e443c1f4c4eb845a822539}{}\label{classfield_aa69f393bb8e443c1f4c4eb845a822539}
+Boolean representing whether field is scattered in Z direction. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/field/\hyperlink{field_8h}{field.\+h}\item 
+/home/rishabh/\+Luxum/lib/field/\hyperlink{field_8cc}{field.\+cc}\end{DoxyCompactItemize}

@@ -1,0 +1,126 @@
+\hypertarget{classparallel}{}\section{parallel Class Reference}
+\label{classparallel}\index{parallel@{parallel}}
+
+
+Class for all the global variables and functions related to parallelization.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/parallel.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classparallel_a84642f9536a8023f627c33ef903816a5}{parallel} (const \hyperlink{classreader}{reader} \&i\+Dat)
+\begin{DoxyCompactList}\small\item\em Constructor of the parallel class. \end{DoxyCompactList}\item 
+int \hyperlink{classparallel_a8152677d080d507c3a553d7f2af57880}{find\+Rank} (int xR, int yR)
+\begin{DoxyCompactList}\small\item\em Function to calculate the global rank of a sub-\/domain using its x\+Rank and y\+Rank. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classparallel_a7e7e97e491ded7bf23632bf9e01aa5a2}{rank}
+\item 
+int \hyperlink{classparallel_afa82c4aacafed73ae34ac5f02bc865fa}{n\+Proc}
+\item 
+blitz\+::\+Array$<$ int, 1 $>$ \hyperlink{classparallel_a7b13d9a40183bca2c103caf50bb16a51}{near\+Ranks}
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classparallel_a7d0143756e8589f09de11b175ea0f167}{npX}
+\item 
+const int \hyperlink{classparallel_aa99115d1a61730e862d690f6ccc4e79e}{npY}
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classparallel_a24418c6a2aa5edb7c06a024757cb2bb6}{x\+Rank}
+\item 
+int \hyperlink{classparallel_a79838566ac5a6e3013343b66e272d08d}{y\+Rank}
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Class for all the global variables and functions related to parallelization. 
+
+After M\+P\+I\+\_\+\+Init, every process has its own rank. Moreover, after performing domain decomposition, each process has its own x\+Rank and y\+Rank to identify its position within the global computational domain. These data, along with the data to identify the neighbouring processes for inter-\/domain communication are stored in the {\bfseries parallel} class. This class is initialized only once at the start of the solver. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{parallel@{parallel}!parallel@{parallel}}
+\index{parallel@{parallel}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{parallel(const reader \&i\+Dat)}{parallel(const reader &iDat)}}]{\setlength{\rightskip}{0pt plus 5cm}parallel\+::parallel (
+\begin{DoxyParamCaption}
+\item[{const {\bf reader} \&}]{i\+Dat}
+\end{DoxyParamCaption}
+)}\hypertarget{classparallel_a84642f9536a8023f627c33ef903816a5}{}\label{classparallel_a84642f9536a8023f627c33ef903816a5}
+
+
+Constructor of the parallel class. 
+
+The initializing functions of M\+PI are called in order to get the total number of processes spawned, and the rank of each process. The x\+Rank and y\+Rank of each process are calculated and assigned. Finally, the ranks of neighbouring processes are found and stored in an array for use in M\+PI communications
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Dat} & is a const reference to the global data contained in the reader class \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{parallel@{parallel}!find\+Rank@{find\+Rank}}
+\index{find\+Rank@{find\+Rank}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{find\+Rank(int x\+R, int y\+R)}{findRank(int xR, int yR)}}]{\setlength{\rightskip}{0pt plus 5cm}int parallel\+::find\+Rank (
+\begin{DoxyParamCaption}
+\item[{int}]{xR, }
+\item[{int}]{yR}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classparallel_a8152677d080d507c3a553d7f2af57880}{}\label{classparallel_a8152677d080d507c3a553d7f2af57880}
+
+
+Function to calculate the global rank of a sub-\/domain using its x\+Rank and y\+Rank. 
+
+The inline function computes the global rank while also checking if the input x\+Rank and y\+Rank lie within the limits prescribed for the solver.
+
+
+\begin{DoxyParams}{Parameters}
+{\em xR} & is the integer value of the sub-\/domain\textquotesingle{}s x\+Rank \\
+\hline
+{\em yR} & is the integer value of the sub-\/domain\textquotesingle{}s y\+Rank\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer value of the rank of the sub-\/domain; M\+P\+I\+\_\+\+P\+R\+O\+C\+\_\+\+N\+U\+LL if the x\+Rank or y\+Rank lie beyond limits 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{parallel@{parallel}!near\+Ranks@{near\+Ranks}}
+\index{near\+Ranks@{near\+Ranks}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{near\+Ranks}{nearRanks}}]{\setlength{\rightskip}{0pt plus 5cm}blitz\+::\+Array$<$int, 1$>$ parallel\+::near\+Ranks}\hypertarget{classparallel_a7b13d9a40183bca2c103caf50bb16a51}{}\label{classparallel_a7b13d9a40183bca2c103caf50bb16a51}
+Array of ranks of the 4 neighbouring sub-\/domains -\/ Left, Right, Front, Back \index{parallel@{parallel}!n\+Proc@{n\+Proc}}
+\index{n\+Proc@{n\+Proc}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{n\+Proc}{nProc}}]{\setlength{\rightskip}{0pt plus 5cm}int parallel\+::n\+Proc}\hypertarget{classparallel_afa82c4aacafed73ae34ac5f02bc865fa}{}\label{classparallel_afa82c4aacafed73ae34ac5f02bc865fa}
+The total number of cores available for computation \index{parallel@{parallel}!npX@{npX}}
+\index{npX@{npX}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{npX}{npX}}]{\setlength{\rightskip}{0pt plus 5cm}const int parallel\+::npX}\hypertarget{classparallel_a7d0143756e8589f09de11b175ea0f167}{}\label{classparallel_a7d0143756e8589f09de11b175ea0f167}
+npX and npY indicates the number of sub-\/domain divisions along the X and Y directions respectively \index{parallel@{parallel}!npY@{npY}}
+\index{npY@{npY}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{npY}{npY}}]{\setlength{\rightskip}{0pt plus 5cm}const int parallel\+::npY}\hypertarget{classparallel_aa99115d1a61730e862d690f6ccc4e79e}{}\label{classparallel_aa99115d1a61730e862d690f6ccc4e79e}
+\index{parallel@{parallel}!rank@{rank}}
+\index{rank@{rank}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{rank}{rank}}]{\setlength{\rightskip}{0pt plus 5cm}int parallel\+::rank}\hypertarget{classparallel_a7e7e97e491ded7bf23632bf9e01aa5a2}{}\label{classparallel_a7e7e97e491ded7bf23632bf9e01aa5a2}
+The M\+PI rank of each sub-\/domain \index{parallel@{parallel}!x\+Rank@{x\+Rank}}
+\index{x\+Rank@{x\+Rank}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{x\+Rank}{xRank}}]{\setlength{\rightskip}{0pt plus 5cm}int parallel\+::x\+Rank}\hypertarget{classparallel_a24418c6a2aa5edb7c06a024757cb2bb6}{}\label{classparallel_a24418c6a2aa5edb7c06a024757cb2bb6}
+x\+Rank and y\+Rank indicates the rank in terms of sub-\/domain divisions along the X and Y directions respectively. Like the global rank variable, these values also start from 0 to npX -\/1 and npY -\/ 1 respectively. \index{parallel@{parallel}!y\+Rank@{y\+Rank}}
+\index{y\+Rank@{y\+Rank}!parallel@{parallel}}
+\subsubsection[{\texorpdfstring{y\+Rank}{yRank}}]{\setlength{\rightskip}{0pt plus 5cm}int parallel\+::y\+Rank}\hypertarget{classparallel_a79838566ac5a6e3013343b66e272d08d}{}\label{classparallel_a79838566ac5a6e3013343b66e272d08d}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{parallel_8h}{parallel.\+h}\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{parallel_8cc}{parallel.\+cc}\end{DoxyCompactItemize}

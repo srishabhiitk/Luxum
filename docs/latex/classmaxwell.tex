@@ -1,0 +1,629 @@
+\hypertarget{classmaxwell}{}\section{maxwell Class Reference}
+\label{classmaxwell}\index{maxwell@{maxwell}}
+
+
+Contains many functions that implement Yee\textquotesingle{}s algorithm along with various sources and boundary conditions.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/maxwell.\+h\char`\"{}}
+
+
+
+Collaboration diagram for maxwell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classmaxwell__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmaxwell_a5aa8706c755b9c5c6229a08e1aff909c}{maxwell} (\hyperlink{classreader}{reader} \&\+\_\+input\+Data, \hyperlink{classparallel}{parallel} \&\+\_\+mpi, \hyperlink{classgrid}{grid} \&\+\_\+grid\+Data)
+\begin{DoxyCompactList}\small\item\em Constructor of the maxwell class. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a6a311a26c882fe4d67e0ad0ce54f52f5}{solve} ()
+\begin{DoxyCompactList}\small\item\em A function which decides the routine to call depending on the choice provided by user in the yaml file. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a5374c6b5679757ff522a447891b8a821}{solve3d} ()
+\begin{DoxyCompactList}\small\item\em Function that calculates the timestepping solution when grid specified is three-\/dimensional without absorbing boundary condition. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a03dbe6755ce725feba522949e3de67d1}{solve3d\+\_\+pml} ()
+\begin{DoxyCompactList}\small\item\em Function that calculates the timestepping solution when grid specified is three-\/dimensional with absorbing boundary condition. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a359aefe7df563dd3fda57a91b2cd6260}{solve\+\_\+planar} ()
+\begin{DoxyCompactList}\small\item\em Function that calculates the timestepping solution when grid specified is two-\/dimensional without absorbing boundary condition. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a09f945a8b430691775b35fdf22cdd408}{solve\+\_\+planar\+\_\+pml} ()
+\begin{DoxyCompactList}\small\item\em Function that calculates the timestepping solution when grid specified is two-\/dimensional with absorbing boundary condition. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{plane\+\_\+wave\+\_\+execute} (\hyperlink{classvfield}{vfield} $\ast$curl, int timestep)
+\begin{DoxyCompactList}\small\item\em This function edits the curl array provided to it adding the plane-\/wave values at the boundary of total field and scattered field. The function also takes timestep number to calculate the value of plane-\/wave theoretically. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_accc6c945840c950b18a0f380dcaccec8}{plane\+\_\+wave\+\_\+execute} (\hyperlink{classvfield}{vfield} $\ast$curl1, \hyperlink{classvfield}{vfield} $\ast$curl2, int timestep)
+\begin{DoxyCompactList}\small\item\em This function is the overload to \hyperlink{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{plane\+\_\+wave\+\_\+execute(vfield $\ast$curl, int timestep)}. \end{DoxyCompactList}\item 
+void \hyperlink{classmaxwell_af829951651b4e98af5dcb891898415da}{plane\+\_\+wave\+\_\+initialise} ()
+\begin{DoxyCompactList}\small\item\em This function initialises certain variables according to the grid distribution over different different processors. These variables are crucial to functioning of \hyperlink{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{plane\+\_\+wave\+\_\+execute()}. \end{DoxyCompactList}\item 
+int \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn} (int dim, bool is\+\_\+E, blitz\+::\+Array$<$ double, 1 $>$ w)
+\begin{DoxyCompactList}\small\item\em This function calculates and stores the polynomial graded profile of loss term sigma in variable \textquotesingle{}w\textquotesingle{}. The function can calculate the grading profile in all directions even for rectangular grid. The direction is specified by parameter \textquotesingle{}dim\textquotesingle{} with its value being 0, 1, and 2 for X, Y, and Z direction respectively. The function is used to calculate profile for both E and H field. The parameter \textquotesingle{}is\+\_\+E\textquotesingle{} is set to true if profile is needed for E field otherwise false. \end{DoxyCompactList}\item 
+int \hyperlink{classmaxwell_af719ef0b11001e31c61fce0913c10aa3}{k\+\_\+fn} (int dim, bool is\+\_\+E, blitz\+::\+Array$<$ double, 1 $>$ w)
+\begin{DoxyCompactList}\small\item\em Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for strectched P\+ML. The profile for this function is also polynomial. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. \end{DoxyCompactList}\item 
+int \hyperlink{classmaxwell_a99dfee634d6c6c38ca534b8e41ddc40f}{a\+\_\+fn} (int dim, bool is\+\_\+E, blitz\+::\+Array$<$ double, 1 $>$ w)
+\begin{DoxyCompactList}\small\item\em Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. \end{DoxyCompactList}\item 
+int \hyperlink{classmaxwell_ad2e22e0c7f09134063c995fdf82ad1b0}{b\+\_\+fn} (int dim, bool is\+\_\+E, blitz\+::\+Array$<$ double, 1 $>$ w)
+\begin{DoxyCompactList}\small\item\em Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. \end{DoxyCompactList}\item 
+int \hyperlink{classmaxwell_a7f5df69501f7b1d28e6833ee76a5fa14}{c\+\_\+fn} (int dim, bool is\+\_\+E, blitz\+::\+Array$<$ double, 1 $>$ w)
+\begin{DoxyCompactList}\small\item\em Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. \end{DoxyCompactList}\item 
+bool \hyperlink{classmaxwell_a48fd72db7c410c42ad5a94d311ef3cb0}{check\+\_\+global\+\_\+limits} (blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ v, bool xstag, bool ystag)
+\begin{DoxyCompactList}\small\item\em This small function simply checks whether a given global index specified by parameter v lies within the M\+PI node calling the function. This is checked using grid data and staggered nature of the scalar field whose index is being questioned. \end{DoxyCompactList}\item 
+blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ \hyperlink{classmaxwell_ac6584903e581c7a4b05eb12632dfda28}{global\+\_\+to\+\_\+local} (blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ glob)
+\begin{DoxyCompactList}\small\item\em This function returns a local index to the M\+PI node of global index, if the result from function \hyperlink{classmaxwell_a48fd72db7c410c42ad5a94d311ef3cb0}{check\+\_\+global\+\_\+limits()} is true. This is used to position the point source in M\+PI node as user will provide the index in global index terms but it will be finally required in local index terms for a specific M\+PI node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classmaxwell_a40c465be209366013cfecb984c96fcdb}{n\+\_\+threads}
+\item 
+int \hyperlink{classmaxwell_a6282670536b066ba81aba77143676d2b}{num\+\_\+timesteps}
+\item 
+double \hyperlink{classmaxwell_a788555c5fe0593392febb872915e7e0a}{epsilon0}
+\item 
+double \hyperlink{classmaxwell_a24f927a857400bd7d6e957366e0514e1}{mew0}
+\item 
+double \hyperlink{classmaxwell_a97ae068093d3316f05b737029c4b848e}{S}
+\item 
+double \hyperlink{classmaxwell_a3d7831352c618e863583d1b20965f8f7}{c}
+\item 
+double \hyperlink{classmaxwell_ab01332ef8711870bd42210b8504eb08b}{dt}
+\item 
+double \hyperlink{classmaxwell_aa12ffa3f8fdf5b3b6b178791ef7bb3bb}{dx}
+\item 
+double \hyperlink{classmaxwell_a66a88a9d7d85c0f017f6dc74c3423a68}{dy}
+\item 
+double \hyperlink{classmaxwell_a2b357e4d145be4296d1051c80f96b83a}{dz}
+\item 
+double \hyperlink{classmaxwell_a04bf51881502360158d883294c1e4564}{a\+\_\+max}
+\item 
+double \hyperlink{classmaxwell_a77804475f8c95be8f44ddee6f0af0bfe}{k\+\_\+max}
+\item 
+double \hyperlink{classmaxwell_a9e42905655eafc044c27606eea0dc1c7}{m\+\_\+pml}
+\item 
+double \hyperlink{classmaxwell_aa2055ecfd573a345dc94aecc12f37511}{ma\+\_\+pml}
+\item 
+double \hyperlink{classmaxwell_a8e8b89b108a26764f803c39908d474da}{sigma\+\_\+optimal}
+\item 
+double \hyperlink{classmaxwell_af945b0a905935b2130eeb6c7a33eb478}{sigma\+\_\+max}
+\item 
+double \hyperlink{classmaxwell_ac0d3b422db5ba08a7fac2d32c408f6a9}{d\+\_\+pml}
+\item 
+double \hyperlink{classmaxwell_a8e5a54fb0c9fe202e76efd43dbc184c3}{sigma}
+\item 
+double \hyperlink{classmaxwell_a549079ef29643a667585039522edba4a}{init}
+\item 
+double \hyperlink{classmaxwell_a7176d5bb9b188561e08c61f48619849f}{lambda}
+\item 
+\hyperlink{classreader}{reader} \& \hyperlink{classmaxwell_a2f4ac38793fe9e80ec26448e631ba69d}{input\+Data}
+\item 
+\hyperlink{classparallel}{parallel} \& \hyperlink{classmaxwell_a9b16bad0e1e47ea794adbc3fee740c64}{mpi}
+\item 
+\hyperlink{classgrid}{grid} \& \hyperlink{classmaxwell_a9c6323aba3021f162ada73b5e06366f9}{grid\+Data}
+\item 
+bool \hyperlink{classmaxwell_a356235214e2e5843d2ffe2c8e4214ef8}{use\+PW}
+\item 
+bool \hyperlink{classmaxwell_aebb8131bb77131dd7f4ce25b0b18ecf9}{use\+P\+ML}
+\item 
+bool \hyperlink{classmaxwell_a2c66ad55c831f87be4243ec2acace958}{use\+PS}
+\item 
+double \hyperlink{classmaxwell_abfa28d79b45ce7c3b9a45c97903057a2}{H\+\_\+x\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a6f1cefe8572a9f1aa0df33734f88c183}{H\+\_\+y\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a3595ede96fdacc0631c3690941138a5e}{H\+\_\+z\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a3a15355bece22428006a6278bdc48c6b}{E\+\_\+x\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a124006b4e0392e25aa4f2710e6ef5d9a}{E\+\_\+y\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a91434ccd5f753f95e3d0d9f7dcb7c5da}{E\+\_\+z\+\_\+dir}
+\item 
+double \hyperlink{classmaxwell_a11e3a7a18b4ea7a1cd560d5316f22395}{kx}
+\item 
+double \hyperlink{classmaxwell_a7784a4aad4a4cd36311f2583ec64f8b0}{ky}
+\item 
+double \hyperlink{classmaxwell_a5bd91522e0be939fdb2c36c909dd01c4}{kz}
+\item 
+int \hyperlink{classmaxwell_ae44e53ed3db3e794c86b1ee2ed45e618}{p1}
+\item 
+int \hyperlink{classmaxwell_af6c514d210b2c78825dca5ffeacace6c}{q1}
+\item 
+int \hyperlink{classmaxwell_ab07e9e4e8a20cc8589b2a571ba71d528}{r1}
+\item 
+int \hyperlink{classmaxwell_abde91396e5a8882df43725baca204d7d}{p2}
+\item 
+int \hyperlink{classmaxwell_a35b17d1913c5aff045695fb688525115}{q2}
+\item 
+int \hyperlink{classmaxwell_a959502e24d5d905521da8bb2aa4e4780}{r2}
+\item 
+int \hyperlink{classmaxwell_a74771f4501b47621a65bc635f1835391}{start\+\_\+x}
+\item 
+int \hyperlink{classmaxwell_a94431c9f918c0dd0dd64fa0f16b6e966}{start\+\_\+y}
+\item 
+int \hyperlink{classmaxwell_a78f4a1897bee44d03cfc0b661e09dc8e}{start\+\_\+z}
+\item 
+int \hyperlink{classmaxwell_ae9eb048f015df5a63df82e81a7992afa}{end\+\_\+x}
+\item 
+int \hyperlink{classmaxwell_a43edb6394c7e1e7c2791cd33f15a704f}{end\+\_\+y}
+\item 
+int \hyperlink{classmaxwell_a6669d673ec8bff76299f6a879558aab7}{end\+\_\+z}
+\item 
+int \hyperlink{classmaxwell_a3b319987a65dc17fcf8e384cdc131fc7}{amp\+\_\+source}
+\item 
+int \hyperlink{classmaxwell_a407b67012a9db173bcc97a0387ad3804}{omega\+\_\+source}
+\item 
+int \hyperlink{classmaxwell_afb46767f44dd0c6628b46ae2a3d7d5f3}{Nx\+\_\+source}
+\item 
+int \hyperlink{classmaxwell_a5e7719b20906c564538f8439fc379493}{Ny\+\_\+source}
+\item 
+int \hyperlink{classmaxwell_adc2e00e20142a6f908ad97be1b8250ab}{Nz\+\_\+source}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains many functions that implement Yee\textquotesingle{}s algorithm along with various sources and boundary conditions. 
+
+The class initializes various variables according to user\textquotesingle{}s choice as read by reader class. The class has various functions that implement Yee\textquotesingle{}s algorithm for two and three dimensions along with different boundary condition. The class also contains various functions that collectively implement plane-\/wave source using Total-\/field scattered-\/field formulation. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{maxwell@{maxwell}!maxwell@{maxwell}}
+\index{maxwell@{maxwell}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{maxwell(reader \&\+\_\+input\+Data, parallel \&\+\_\+mpi, grid \&\+\_\+grid\+Data)}{maxwell(reader &_inputData, parallel &_mpi, grid &_gridData)}}]{\setlength{\rightskip}{0pt plus 5cm}maxwell\+::maxwell (
+\begin{DoxyParamCaption}
+\item[{{\bf reader} \&}]{\+\_\+input\+Data, }
+\item[{{\bf parallel} \&}]{\+\_\+mpi, }
+\item[{{\bf grid} \&}]{\+\_\+grid\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a5aa8706c755b9c5c6229a08e1aff909c}{}\label{classmaxwell_a5aa8706c755b9c5c6229a08e1aff909c}
+
+
+Constructor of the maxwell class. 
+
+Initialises various variables and constants according to conditions ans values given in yaml file.
+
+Also calculates some quantities such as direction of H field according to directions specified of wave vector \textquotesingle{}k\textquotesingle{} and E field.
+
+Also calls the function \hyperlink{classmaxwell_af829951651b4e98af5dcb891898415da}{plane\+\_\+wave\+\_\+initialise()}, in case plane-\/waves are required by the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+input\+Data} & is a reference to reader class object. \\
+\hline
+{\em \+\_\+mpi} & is a reference to parallel class object. \\
+\hline
+{\em \+\_\+grid\+Data} & is a reference to grid class object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{maxwell@{maxwell}!a\+\_\+fn@{a\+\_\+fn}}
+\index{a\+\_\+fn@{a\+\_\+fn}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{a\+\_\+fn(int dim, bool is\+\_\+\+E, blitz\+::\+Array$<$ double, 1 $>$ w)}{a_fn(int dim, bool is_E, blitz::Array< double, 1 > w)}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::a\+\_\+fn (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{bool}]{is\+\_\+E, }
+\item[{blitz\+::\+Array$<$ double, 1 $>$}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a99dfee634d6c6c38ca534b8e41ddc40f}{}\label{classmaxwell_a99dfee634d6c6c38ca534b8e41ddc40f}
+
+
+Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & specifes the dimension in which grading profile is to be calculated. \\
+\hline
+{\em is\+\_\+E} & is set to true if profile is required for E field, otherwise it is set to false. \\
+\hline
+{\em w} & is the variable where the calculated grading profile will be stored. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!b\+\_\+fn@{b\+\_\+fn}}
+\index{b\+\_\+fn@{b\+\_\+fn}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{b\+\_\+fn(int dim, bool is\+\_\+\+E, blitz\+::\+Array$<$ double, 1 $>$ w)}{b_fn(int dim, bool is_E, blitz::Array< double, 1 > w)}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::b\+\_\+fn (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{bool}]{is\+\_\+E, }
+\item[{blitz\+::\+Array$<$ double, 1 $>$}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_ad2e22e0c7f09134063c995fdf82ad1b0}{}\label{classmaxwell_ad2e22e0c7f09134063c995fdf82ad1b0}
+
+
+Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & specifes the dimension in which grading profile is to be calculated. \\
+\hline
+{\em is\+\_\+E} & is set to true if profile is required for E field, otherwise it is set to false. \\
+\hline
+{\em w} & is the variable where the calculated grading profile will be stored. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!c\+\_\+fn@{c\+\_\+fn}}
+\index{c\+\_\+fn@{c\+\_\+fn}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{c\+\_\+fn(int dim, bool is\+\_\+\+E, blitz\+::\+Array$<$ double, 1 $>$ w)}{c_fn(int dim, bool is_E, blitz::Array< double, 1 > w)}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::c\+\_\+fn (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{bool}]{is\+\_\+E, }
+\item[{blitz\+::\+Array$<$ double, 1 $>$}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a7f5df69501f7b1d28e6833ee76a5fa14}{}\label{classmaxwell_a7f5df69501f7b1d28e6833ee76a5fa14}
+
+
+Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for complex P\+ML. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & specifes the dimension in which grading profile is to be calculated. \\
+\hline
+{\em is\+\_\+E} & is set to true if profile is required for E field, otherwise it is set to false. \\
+\hline
+{\em w} & is the variable where the calculated grading profile will be stored. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!check\+\_\+global\+\_\+limits@{check\+\_\+global\+\_\+limits}}
+\index{check\+\_\+global\+\_\+limits@{check\+\_\+global\+\_\+limits}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{check\+\_\+global\+\_\+limits(blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ v, bool xstag, bool ystag)}{check_global_limits(blitz::TinyVector< int, 3 > v, bool xstag, bool ystag)}}]{\setlength{\rightskip}{0pt plus 5cm}bool maxwell\+::check\+\_\+global\+\_\+limits (
+\begin{DoxyParamCaption}
+\item[{blitz\+::\+Tiny\+Vector$<$ int, 3 $>$}]{v, }
+\item[{bool}]{xstag, }
+\item[{bool}]{ystag}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a48fd72db7c410c42ad5a94d311ef3cb0}{}\label{classmaxwell_a48fd72db7c410c42ad5a94d311ef3cb0}
+
+
+This small function simply checks whether a given global index specified by parameter v lies within the M\+PI node calling the function. This is checked using grid data and staggered nature of the scalar field whose index is being questioned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & is a three element Blitz Tiny\+Vector which conains the global index in question. \\
+\hline
+{\em xstag} & is a boolean which contains whether the field is question is staggered in X. \\
+\hline
+{\em ystag} & is a boolean which contains whether the field is question is staggered in Y. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!global\+\_\+to\+\_\+local@{global\+\_\+to\+\_\+local}}
+\index{global\+\_\+to\+\_\+local@{global\+\_\+to\+\_\+local}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{global\+\_\+to\+\_\+local(blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ glob)}{global_to_local(blitz::TinyVector< int, 3 > glob)}}]{\setlength{\rightskip}{0pt plus 5cm}blitz\+::\+Tiny\+Vector$<$ int, 3 $>$ maxwell\+::global\+\_\+to\+\_\+local (
+\begin{DoxyParamCaption}
+\item[{blitz\+::\+Tiny\+Vector$<$ int, 3 $>$}]{glob}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_ac6584903e581c7a4b05eb12632dfda28}{}\label{classmaxwell_ac6584903e581c7a4b05eb12632dfda28}
+
+
+This function returns a local index to the M\+PI node of global index, if the result from function \hyperlink{classmaxwell_a48fd72db7c410c42ad5a94d311ef3cb0}{check\+\_\+global\+\_\+limits()} is true. This is used to position the point source in M\+PI node as user will provide the index in global index terms but it will be finally required in local index terms for a specific M\+PI node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glob} & is a three element Blitz Tiny\+Vector which conains the global index required to be converted to local index. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!k\+\_\+fn@{k\+\_\+fn}}
+\index{k\+\_\+fn@{k\+\_\+fn}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{k\+\_\+fn(int dim, bool is\+\_\+\+E, blitz\+::\+Array$<$ double, 1 $>$ w)}{k_fn(int dim, bool is_E, blitz::Array< double, 1 > w)}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::k\+\_\+fn (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{bool}]{is\+\_\+E, }
+\item[{blitz\+::\+Array$<$ double, 1 $>$}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_af719ef0b11001e31c61fce0913c10aa3}{}\label{classmaxwell_af719ef0b11001e31c61fce0913c10aa3}
+
+
+Similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} this function also calculates another quantity useful for P\+ML application, specifically for strectched P\+ML. The profile for this function is also polynomial. The function calculates the profile for all directions in rectangular grid. The input parameters are similar to \hyperlink{classmaxwell_af806ab1486ebc79103b41171d46d759b}{sigma\+\_\+fn()} and serve same function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & specifes the dimension in which grading profile is to be calculated. \\
+\hline
+{\em is\+\_\+E} & is set to true if profile is required for E field, otherwise it is set to false. \\
+\hline
+{\em w} & is the variable where the calculated grading profile will be stored. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!plane\+\_\+wave\+\_\+execute@{plane\+\_\+wave\+\_\+execute}}
+\index{plane\+\_\+wave\+\_\+execute@{plane\+\_\+wave\+\_\+execute}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{plane\+\_\+wave\+\_\+execute(vfield $\ast$curl, int timestep)}{plane_wave_execute(vfield *curl, int timestep)}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::plane\+\_\+wave\+\_\+execute (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl, }
+\item[{int}]{timestep}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{}\label{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}
+
+
+This function edits the curl array provided to it adding the plane-\/wave values at the boundary of total field and scattered field. The function also takes timestep number to calculate the value of plane-\/wave theoretically. 
+
+It is enough to add the values of plane wave at the boundary of an imaginary total field cube. This keeps the plane-\/wave sustained throughout the cube.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl} & is the poniter to curl array which needs to edited so that it contains the plane-\/wave values. \\
+\hline
+{\em timestep} & is the number of time-\/step at which the solution is currently at. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!plane\+\_\+wave\+\_\+execute@{plane\+\_\+wave\+\_\+execute}}
+\index{plane\+\_\+wave\+\_\+execute@{plane\+\_\+wave\+\_\+execute}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{plane\+\_\+wave\+\_\+execute(vfield $\ast$curl1, vfield $\ast$curl2, int timestep)}{plane_wave_execute(vfield *curl1, vfield *curl2, int timestep)}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::plane\+\_\+wave\+\_\+execute (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl1, }
+\item[{{\bf vfield} $\ast$}]{curl2, }
+\item[{int}]{timestep}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_accc6c945840c950b18a0f380dcaccec8}{}\label{classmaxwell_accc6c945840c950b18a0f380dcaccec8}
+
+
+This function is the overload to \hyperlink{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{plane\+\_\+wave\+\_\+execute(vfield $\ast$curl, int timestep)}. 
+
+It does the exact same thing but because 3D solutions require two curl arrays instead of one, it takes both of them as input and adds the plane-\/wave values accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl1} & is the poniter to first curl array which needs to edited so that it contains the plane-\/wave values. \\
+\hline
+{\em curl2} & is the poniter to second curl array which needs to edited so that it contains the plane-\/wave values. \\
+\hline
+{\em timestep} & is the number of time-\/step at which the solution is currently at. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!plane\+\_\+wave\+\_\+initialise@{plane\+\_\+wave\+\_\+initialise}}
+\index{plane\+\_\+wave\+\_\+initialise@{plane\+\_\+wave\+\_\+initialise}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{plane\+\_\+wave\+\_\+initialise()}{plane_wave_initialise()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::plane\+\_\+wave\+\_\+initialise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_af829951651b4e98af5dcb891898415da}{}\label{classmaxwell_af829951651b4e98af5dcb891898415da}
+
+
+This function initialises certain variables according to the grid distribution over different different processors. These variables are crucial to functioning of \hyperlink{classmaxwell_a9c092b4548653a12392086ad9d1aacd9}{plane\+\_\+wave\+\_\+execute()}. 
+
+The variables are initialised once and then used throughout all the timesteps without change. Hence, the function is called once by the constructor if plane-\/wave source is reuqired. \index{maxwell@{maxwell}!sigma\+\_\+fn@{sigma\+\_\+fn}}
+\index{sigma\+\_\+fn@{sigma\+\_\+fn}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{sigma\+\_\+fn(int dim, bool is\+\_\+\+E, blitz\+::\+Array$<$ double, 1 $>$ w)}{sigma_fn(int dim, bool is_E, blitz::Array< double, 1 > w)}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::sigma\+\_\+fn (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{bool}]{is\+\_\+E, }
+\item[{blitz\+::\+Array$<$ double, 1 $>$}]{w}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_af806ab1486ebc79103b41171d46d759b}{}\label{classmaxwell_af806ab1486ebc79103b41171d46d759b}
+
+
+This function calculates and stores the polynomial graded profile of loss term sigma in variable \textquotesingle{}w\textquotesingle{}. The function can calculate the grading profile in all directions even for rectangular grid. The direction is specified by parameter \textquotesingle{}dim\textquotesingle{} with its value being 0, 1, and 2 for X, Y, and Z direction respectively. The function is used to calculate profile for both E and H field. The parameter \textquotesingle{}is\+\_\+E\textquotesingle{} is set to true if profile is needed for E field otherwise false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & specifes the dimension in which grading profile is to be calculated. \\
+\hline
+{\em is\+\_\+E} & is set to true if profile is required for E field, otherwise it is set to false. \\
+\hline
+{\em w} & is the variable where the calculated grading profile will be stored. \\
+\hline
+\end{DoxyParams}
+\index{maxwell@{maxwell}!solve@{solve}}
+\index{solve@{solve}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{solve()}{solve()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::solve (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a6a311a26c882fe4d67e0ad0ce54f52f5}{}\label{classmaxwell_a6a311a26c882fe4d67e0ad0ce54f52f5}
+
+
+A function which decides the routine to call depending on the choice provided by user in the yaml file. 
+
+\index{maxwell@{maxwell}!solve3d@{solve3d}}
+\index{solve3d@{solve3d}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{solve3d()}{solve3d()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::solve3d (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a5374c6b5679757ff522a447891b8a821}{}\label{classmaxwell_a5374c6b5679757ff522a447891b8a821}
+
+
+Function that calculates the timestepping solution when grid specified is three-\/dimensional without absorbing boundary condition. 
+
+\index{maxwell@{maxwell}!solve3d\+\_\+pml@{solve3d\+\_\+pml}}
+\index{solve3d\+\_\+pml@{solve3d\+\_\+pml}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{solve3d\+\_\+pml()}{solve3d_pml()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::solve3d\+\_\+pml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a03dbe6755ce725feba522949e3de67d1}{}\label{classmaxwell_a03dbe6755ce725feba522949e3de67d1}
+
+
+Function that calculates the timestepping solution when grid specified is three-\/dimensional with absorbing boundary condition. 
+
+\index{maxwell@{maxwell}!solve\+\_\+planar@{solve\+\_\+planar}}
+\index{solve\+\_\+planar@{solve\+\_\+planar}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{solve\+\_\+planar()}{solve_planar()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::solve\+\_\+planar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a359aefe7df563dd3fda57a91b2cd6260}{}\label{classmaxwell_a359aefe7df563dd3fda57a91b2cd6260}
+
+
+Function that calculates the timestepping solution when grid specified is two-\/dimensional without absorbing boundary condition. 
+
+\index{maxwell@{maxwell}!solve\+\_\+planar\+\_\+pml@{solve\+\_\+planar\+\_\+pml}}
+\index{solve\+\_\+planar\+\_\+pml@{solve\+\_\+planar\+\_\+pml}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{solve\+\_\+planar\+\_\+pml()}{solve_planar_pml()}}]{\setlength{\rightskip}{0pt plus 5cm}void maxwell\+::solve\+\_\+planar\+\_\+pml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmaxwell_a09f945a8b430691775b35fdf22cdd408}{}\label{classmaxwell_a09f945a8b430691775b35fdf22cdd408}
+
+
+Function that calculates the timestepping solution when grid specified is two-\/dimensional with absorbing boundary condition. 
+
+
+
+\subsection{Member Data Documentation}
+\index{maxwell@{maxwell}!a\+\_\+max@{a\+\_\+max}}
+\index{a\+\_\+max@{a\+\_\+max}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{a\+\_\+max}{a_max}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::a\+\_\+max}\hypertarget{classmaxwell_a04bf51881502360158d883294c1e4564}{}\label{classmaxwell_a04bf51881502360158d883294c1e4564}
+P\+ML parameter\+: Maximum value of a. \index{maxwell@{maxwell}!amp\+\_\+source@{amp\+\_\+source}}
+\index{amp\+\_\+source@{amp\+\_\+source}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{amp\+\_\+source}{amp_source}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::amp\+\_\+source}\hypertarget{classmaxwell_a3b319987a65dc17fcf8e384cdc131fc7}{}\label{classmaxwell_a3b319987a65dc17fcf8e384cdc131fc7}
+Amplitude of point source. \index{maxwell@{maxwell}!c@{c}}
+\index{c@{c}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{c}{c}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::c}\hypertarget{classmaxwell_a3d7831352c618e863583d1b20965f8f7}{}\label{classmaxwell_a3d7831352c618e863583d1b20965f8f7}
+Stores value of speed of light calculated from \textquotesingle{}epsilon0\textquotesingle{} and \textquotesingle{}mew0\textquotesingle{}. \index{maxwell@{maxwell}!d\+\_\+pml@{d\+\_\+pml}}
+\index{d\+\_\+pml@{d\+\_\+pml}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{d\+\_\+pml}{d_pml}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::d\+\_\+pml}\hypertarget{classmaxwell_ac0d3b422db5ba08a7fac2d32c408f6a9}{}\label{classmaxwell_ac0d3b422db5ba08a7fac2d32c408f6a9}
+P\+ML parameter\+: Length of P\+ML in units similar to that of dx. \index{maxwell@{maxwell}!dt@{dt}}
+\index{dt@{dt}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{dt}{dt}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::dt}\hypertarget{classmaxwell_ab01332ef8711870bd42210b8504eb08b}{}\label{classmaxwell_ab01332ef8711870bd42210b8504eb08b}
+Resolution in time. \index{maxwell@{maxwell}!dx@{dx}}
+\index{dx@{dx}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{dx}{dx}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::dx}\hypertarget{classmaxwell_aa12ffa3f8fdf5b3b6b178791ef7bb3bb}{}\label{classmaxwell_aa12ffa3f8fdf5b3b6b178791ef7bb3bb}
+Resolution in X-\/direction. \index{maxwell@{maxwell}!dy@{dy}}
+\index{dy@{dy}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{dy}{dy}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::dy}\hypertarget{classmaxwell_a66a88a9d7d85c0f017f6dc74c3423a68}{}\label{classmaxwell_a66a88a9d7d85c0f017f6dc74c3423a68}
+Resolution in Y-\/direction. \index{maxwell@{maxwell}!dz@{dz}}
+\index{dz@{dz}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{dz}{dz}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::dz}\hypertarget{classmaxwell_a2b357e4d145be4296d1051c80f96b83a}{}\label{classmaxwell_a2b357e4d145be4296d1051c80f96b83a}
+Resolution in Z-\/direction. \index{maxwell@{maxwell}!E\+\_\+x\+\_\+dir@{E\+\_\+x\+\_\+dir}}
+\index{E\+\_\+x\+\_\+dir@{E\+\_\+x\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{E\+\_\+x\+\_\+dir}{E_x_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+E\+\_\+x\+\_\+dir}\hypertarget{classmaxwell_a3a15355bece22428006a6278bdc48c6b}{}\label{classmaxwell_a3a15355bece22428006a6278bdc48c6b}
+Coefficient representing X-\/direction of E-\/field of plane-\/wave. \index{maxwell@{maxwell}!E\+\_\+y\+\_\+dir@{E\+\_\+y\+\_\+dir}}
+\index{E\+\_\+y\+\_\+dir@{E\+\_\+y\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{E\+\_\+y\+\_\+dir}{E_y_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+E\+\_\+y\+\_\+dir}\hypertarget{classmaxwell_a124006b4e0392e25aa4f2710e6ef5d9a}{}\label{classmaxwell_a124006b4e0392e25aa4f2710e6ef5d9a}
+Coefficient representing Y-\/direction of E-\/field of plane-\/wave. \index{maxwell@{maxwell}!E\+\_\+z\+\_\+dir@{E\+\_\+z\+\_\+dir}}
+\index{E\+\_\+z\+\_\+dir@{E\+\_\+z\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{E\+\_\+z\+\_\+dir}{E_z_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+E\+\_\+z\+\_\+dir}\hypertarget{classmaxwell_a91434ccd5f753f95e3d0d9f7dcb7c5da}{}\label{classmaxwell_a91434ccd5f753f95e3d0d9f7dcb7c5da}
+Coefficient representing Z-\/direction of E-\/field of plane-\/wave. \index{maxwell@{maxwell}!end\+\_\+x@{end\+\_\+x}}
+\index{end\+\_\+x@{end\+\_\+x}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{end\+\_\+x}{end_x}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::end\+\_\+x}\hypertarget{classmaxwell_ae9eb048f015df5a63df82e81a7992afa}{}\label{classmaxwell_ae9eb048f015df5a63df82e81a7992afa}
+Stores the local X-\/index till where plane-\/wave has to go for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!end\+\_\+y@{end\+\_\+y}}
+\index{end\+\_\+y@{end\+\_\+y}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{end\+\_\+y}{end_y}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::end\+\_\+y}\hypertarget{classmaxwell_a43edb6394c7e1e7c2791cd33f15a704f}{}\label{classmaxwell_a43edb6394c7e1e7c2791cd33f15a704f}
+Stores the local Y-\/index till where plane-\/wave has to go for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!end\+\_\+z@{end\+\_\+z}}
+\index{end\+\_\+z@{end\+\_\+z}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{end\+\_\+z}{end_z}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::end\+\_\+z}\hypertarget{classmaxwell_a6669d673ec8bff76299f6a879558aab7}{}\label{classmaxwell_a6669d673ec8bff76299f6a879558aab7}
+Stores the local Z-\/index till where plane-\/wave has to go for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!epsilon0@{epsilon0}}
+\index{epsilon0@{epsilon0}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{epsilon0}{epsilon0}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::epsilon0}\hypertarget{classmaxwell_a788555c5fe0593392febb872915e7e0a}{}\label{classmaxwell_a788555c5fe0593392febb872915e7e0a}
+Stores value of electric permeability of vaccum. \index{maxwell@{maxwell}!grid\+Data@{grid\+Data}}
+\index{grid\+Data@{grid\+Data}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{grid\+Data}{gridData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf grid}\& maxwell\+::grid\+Data}\hypertarget{classmaxwell_a9c6323aba3021f162ada73b5e06366f9}{}\label{classmaxwell_a9c6323aba3021f162ada73b5e06366f9}
+Poiter to object of grid class. \index{maxwell@{maxwell}!H\+\_\+x\+\_\+dir@{H\+\_\+x\+\_\+dir}}
+\index{H\+\_\+x\+\_\+dir@{H\+\_\+x\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{H\+\_\+x\+\_\+dir}{H_x_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+H\+\_\+x\+\_\+dir}\hypertarget{classmaxwell_abfa28d79b45ce7c3b9a45c97903057a2}{}\label{classmaxwell_abfa28d79b45ce7c3b9a45c97903057a2}
+Coefficient representing X-\/direction of H-\/field of plane-\/wave. \index{maxwell@{maxwell}!H\+\_\+y\+\_\+dir@{H\+\_\+y\+\_\+dir}}
+\index{H\+\_\+y\+\_\+dir@{H\+\_\+y\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{H\+\_\+y\+\_\+dir}{H_y_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+H\+\_\+y\+\_\+dir}\hypertarget{classmaxwell_a6f1cefe8572a9f1aa0df33734f88c183}{}\label{classmaxwell_a6f1cefe8572a9f1aa0df33734f88c183}
+Coefficient representing Y-\/direction of H-\/field of plane-\/wave. \index{maxwell@{maxwell}!H\+\_\+z\+\_\+dir@{H\+\_\+z\+\_\+dir}}
+\index{H\+\_\+z\+\_\+dir@{H\+\_\+z\+\_\+dir}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{H\+\_\+z\+\_\+dir}{H_z_dir}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::\+H\+\_\+z\+\_\+dir}\hypertarget{classmaxwell_a3595ede96fdacc0631c3690941138a5e}{}\label{classmaxwell_a3595ede96fdacc0631c3690941138a5e}
+Coefficient representing Z-\/direction of H-\/field of plane-\/wave. \index{maxwell@{maxwell}!init@{init}}
+\index{init@{init}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{init}{init}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::init}\hypertarget{classmaxwell_a549079ef29643a667585039522edba4a}{}\label{classmaxwell_a549079ef29643a667585039522edba4a}
+Plane-\/wave source parameter\+: Offset value of Gaussian pulse with flat wave-\/front. It can be used to delay or advance the pulse arrival time in Total Field zone. \index{maxwell@{maxwell}!input\+Data@{input\+Data}}
+\index{input\+Data@{input\+Data}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{input\+Data}{inputData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf reader}\& maxwell\+::input\+Data}\hypertarget{classmaxwell_a2f4ac38793fe9e80ec26448e631ba69d}{}\label{classmaxwell_a2f4ac38793fe9e80ec26448e631ba69d}
+Poiter to object of reader class. \index{maxwell@{maxwell}!k\+\_\+max@{k\+\_\+max}}
+\index{k\+\_\+max@{k\+\_\+max}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{k\+\_\+max}{k_max}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::k\+\_\+max}\hypertarget{classmaxwell_a77804475f8c95be8f44ddee6f0af0bfe}{}\label{classmaxwell_a77804475f8c95be8f44ddee6f0af0bfe}
+P\+ML parameter\+: Maximum value of k. \index{maxwell@{maxwell}!kx@{kx}}
+\index{kx@{kx}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{kx}{kx}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::kx}\hypertarget{classmaxwell_a11e3a7a18b4ea7a1cd560d5316f22395}{}\label{classmaxwell_a11e3a7a18b4ea7a1cd560d5316f22395}
+Coefficient representing X-\/direction of wavevector of plane-\/wave. \index{maxwell@{maxwell}!ky@{ky}}
+\index{ky@{ky}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{ky}{ky}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::ky}\hypertarget{classmaxwell_a7784a4aad4a4cd36311f2583ec64f8b0}{}\label{classmaxwell_a7784a4aad4a4cd36311f2583ec64f8b0}
+Coefficient representing Y-\/direction of wavevector of plane-\/wave. \index{maxwell@{maxwell}!kz@{kz}}
+\index{kz@{kz}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{kz}{kz}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::kz}\hypertarget{classmaxwell_a5bd91522e0be939fdb2c36c909dd01c4}{}\label{classmaxwell_a5bd91522e0be939fdb2c36c909dd01c4}
+Coefficient representing Z-\/direction of wavevector of plane-\/wave. \index{maxwell@{maxwell}!lambda@{lambda}}
+\index{lambda@{lambda}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{lambda}{lambda}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::lambda}\hypertarget{classmaxwell_a7176d5bb9b188561e08c61f48619849f}{}\label{classmaxwell_a7176d5bb9b188561e08c61f48619849f}
+Wavelength of light. \index{maxwell@{maxwell}!m\+\_\+pml@{m\+\_\+pml}}
+\index{m\+\_\+pml@{m\+\_\+pml}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{m\+\_\+pml}{m_pml}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::m\+\_\+pml}\hypertarget{classmaxwell_a9e42905655eafc044c27606eea0dc1c7}{}\label{classmaxwell_a9e42905655eafc044c27606eea0dc1c7}
+P\+ML parameter\+: Polynomial exponent for sigma grading. \index{maxwell@{maxwell}!ma\+\_\+pml@{ma\+\_\+pml}}
+\index{ma\+\_\+pml@{ma\+\_\+pml}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{ma\+\_\+pml}{ma_pml}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::ma\+\_\+pml}\hypertarget{classmaxwell_aa2055ecfd573a345dc94aecc12f37511}{}\label{classmaxwell_aa2055ecfd573a345dc94aecc12f37511}
+P\+ML parameter\+: Polynomial exponent for a function grading. \index{maxwell@{maxwell}!mew0@{mew0}}
+\index{mew0@{mew0}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{mew0}{mew0}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::mew0}\hypertarget{classmaxwell_a24f927a857400bd7d6e957366e0514e1}{}\label{classmaxwell_a24f927a857400bd7d6e957366e0514e1}
+Stores value of magnetic permeability of vaccum. \index{maxwell@{maxwell}!mpi@{mpi}}
+\index{mpi@{mpi}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{mpi}{mpi}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parallel}\& maxwell\+::mpi}\hypertarget{classmaxwell_a9b16bad0e1e47ea794adbc3fee740c64}{}\label{classmaxwell_a9b16bad0e1e47ea794adbc3fee740c64}
+Poiter to object of parallel class. \index{maxwell@{maxwell}!n\+\_\+threads@{n\+\_\+threads}}
+\index{n\+\_\+threads@{n\+\_\+threads}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{n\+\_\+threads}{n_threads}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::n\+\_\+threads}\hypertarget{classmaxwell_a40c465be209366013cfecb984c96fcdb}{}\label{classmaxwell_a40c465be209366013cfecb984c96fcdb}
+Stores the number of open\+MP threads per M\+PI node. \index{maxwell@{maxwell}!num\+\_\+timesteps@{num\+\_\+timesteps}}
+\index{num\+\_\+timesteps@{num\+\_\+timesteps}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{num\+\_\+timesteps}{num_timesteps}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::num\+\_\+timesteps}\hypertarget{classmaxwell_a6282670536b066ba81aba77143676d2b}{}\label{classmaxwell_a6282670536b066ba81aba77143676d2b}
+Number of total timesteps to be executed. \index{maxwell@{maxwell}!Nx\+\_\+source@{Nx\+\_\+source}}
+\index{Nx\+\_\+source@{Nx\+\_\+source}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{Nx\+\_\+source}{Nx_source}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::\+Nx\+\_\+source}\hypertarget{classmaxwell_afb46767f44dd0c6628b46ae2a3d7d5f3}{}\label{classmaxwell_afb46767f44dd0c6628b46ae2a3d7d5f3}
+Global X-\/index of point source location. \index{maxwell@{maxwell}!Ny\+\_\+source@{Ny\+\_\+source}}
+\index{Ny\+\_\+source@{Ny\+\_\+source}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{Ny\+\_\+source}{Ny_source}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::\+Ny\+\_\+source}\hypertarget{classmaxwell_a5e7719b20906c564538f8439fc379493}{}\label{classmaxwell_a5e7719b20906c564538f8439fc379493}
+Global Y-\/index of point source location. \index{maxwell@{maxwell}!Nz\+\_\+source@{Nz\+\_\+source}}
+\index{Nz\+\_\+source@{Nz\+\_\+source}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{Nz\+\_\+source}{Nz_source}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::\+Nz\+\_\+source}\hypertarget{classmaxwell_adc2e00e20142a6f908ad97be1b8250ab}{}\label{classmaxwell_adc2e00e20142a6f908ad97be1b8250ab}
+Global Z-\/index of point source location. \index{maxwell@{maxwell}!omega\+\_\+source@{omega\+\_\+source}}
+\index{omega\+\_\+source@{omega\+\_\+source}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{omega\+\_\+source}{omega_source}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::omega\+\_\+source}\hypertarget{classmaxwell_a407b67012a9db173bcc97a0387ad3804}{}\label{classmaxwell_a407b67012a9db173bcc97a0387ad3804}
+Angular-\/frequency of point source. \index{maxwell@{maxwell}!p1@{p1}}
+\index{p1@{p1}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{p1}{p1}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::p1}\hypertarget{classmaxwell_ae44e53ed3db3e794c86b1ee2ed45e618}{}\label{classmaxwell_ae44e53ed3db3e794c86b1ee2ed45e618}
+Global X-\/index marking start of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!p2@{p2}}
+\index{p2@{p2}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{p2}{p2}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::p2}\hypertarget{classmaxwell_abde91396e5a8882df43725baca204d7d}{}\label{classmaxwell_abde91396e5a8882df43725baca204d7d}
+Global X-\/index marking end of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!q1@{q1}}
+\index{q1@{q1}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{q1}{q1}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::q1}\hypertarget{classmaxwell_af6c514d210b2c78825dca5ffeacace6c}{}\label{classmaxwell_af6c514d210b2c78825dca5ffeacace6c}
+Global Y-\/index marking start of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!q2@{q2}}
+\index{q2@{q2}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{q2}{q2}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::q2}\hypertarget{classmaxwell_a35b17d1913c5aff045695fb688525115}{}\label{classmaxwell_a35b17d1913c5aff045695fb688525115}
+Global Y-\/index marking end of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!r1@{r1}}
+\index{r1@{r1}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{r1}{r1}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::r1}\hypertarget{classmaxwell_ab07e9e4e8a20cc8589b2a571ba71d528}{}\label{classmaxwell_ab07e9e4e8a20cc8589b2a571ba71d528}
+Global Z-\/index marking start of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!r2@{r2}}
+\index{r2@{r2}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{r2}{r2}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::r2}\hypertarget{classmaxwell_a959502e24d5d905521da8bb2aa4e4780}{}\label{classmaxwell_a959502e24d5d905521da8bb2aa4e4780}
+Global Z-\/index marking end of Total-\/field zone for plane-\/wave. \index{maxwell@{maxwell}!S@{S}}
+\index{S@{S}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{S}{S}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::S}\hypertarget{classmaxwell_a97ae068093d3316f05b737029c4b848e}{}\label{classmaxwell_a97ae068093d3316f05b737029c4b848e}
+Stores courant factor of Yee\textquotesingle{}s algorithm. \index{maxwell@{maxwell}!sigma@{sigma}}
+\index{sigma@{sigma}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{sigma}{sigma}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::sigma}\hypertarget{classmaxwell_a8e5a54fb0c9fe202e76efd43dbc184c3}{}\label{classmaxwell_a8e5a54fb0c9fe202e76efd43dbc184c3}
+Plane-\/wave source parameter\+: Width of Gaussian pulse with flat wave-\/front. \index{maxwell@{maxwell}!sigma\+\_\+max@{sigma\+\_\+max}}
+\index{sigma\+\_\+max@{sigma\+\_\+max}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{sigma\+\_\+max}{sigma_max}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::sigma\+\_\+max}\hypertarget{classmaxwell_af945b0a905935b2130eeb6c7a33eb478}{}\label{classmaxwell_af945b0a905935b2130eeb6c7a33eb478}
+P\+ML parameter\+: Maximum value of sigma function. \index{maxwell@{maxwell}!sigma\+\_\+optimal@{sigma\+\_\+optimal}}
+\index{sigma\+\_\+optimal@{sigma\+\_\+optimal}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{sigma\+\_\+optimal}{sigma_optimal}}]{\setlength{\rightskip}{0pt plus 5cm}double maxwell\+::sigma\+\_\+optimal}\hypertarget{classmaxwell_a8e8b89b108a26764f803c39908d474da}{}\label{classmaxwell_a8e8b89b108a26764f803c39908d474da}
+P\+ML parameter\+: Optimal value of sigma max for 5 to 10 cell thick P\+ML. \index{maxwell@{maxwell}!start\+\_\+x@{start\+\_\+x}}
+\index{start\+\_\+x@{start\+\_\+x}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{start\+\_\+x}{start_x}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::start\+\_\+x}\hypertarget{classmaxwell_a74771f4501b47621a65bc635f1835391}{}\label{classmaxwell_a74771f4501b47621a65bc635f1835391}
+Stores the local X-\/index from where plane-\/wave has to start for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!start\+\_\+y@{start\+\_\+y}}
+\index{start\+\_\+y@{start\+\_\+y}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{start\+\_\+y}{start_y}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::start\+\_\+y}\hypertarget{classmaxwell_a94431c9f918c0dd0dd64fa0f16b6e966}{}\label{classmaxwell_a94431c9f918c0dd0dd64fa0f16b6e966}
+Stores the local Y-\/index from where plane-\/wave has to start for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!start\+\_\+z@{start\+\_\+z}}
+\index{start\+\_\+z@{start\+\_\+z}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{start\+\_\+z}{start_z}}]{\setlength{\rightskip}{0pt plus 5cm}int maxwell\+::start\+\_\+z}\hypertarget{classmaxwell_a78f4a1897bee44d03cfc0b661e09dc8e}{}\label{classmaxwell_a78f4a1897bee44d03cfc0b661e09dc8e}
+Stores the local Z-\/index from where plane-\/wave has to start for specific M\+P\+I-\/node. \index{maxwell@{maxwell}!use\+P\+ML@{use\+P\+ML}}
+\index{use\+P\+ML@{use\+P\+ML}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{use\+P\+ML}{usePML}}]{\setlength{\rightskip}{0pt plus 5cm}bool maxwell\+::use\+P\+ML}\hypertarget{classmaxwell_aebb8131bb77131dd7f4ce25b0b18ecf9}{}\label{classmaxwell_aebb8131bb77131dd7f4ce25b0b18ecf9}
+Boolean storing whether to use P\+ML boundary condition or not. \index{maxwell@{maxwell}!use\+PS@{use\+PS}}
+\index{use\+PS@{use\+PS}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{use\+PS}{usePS}}]{\setlength{\rightskip}{0pt plus 5cm}bool maxwell\+::use\+PS}\hypertarget{classmaxwell_a2c66ad55c831f87be4243ec2acace958}{}\label{classmaxwell_a2c66ad55c831f87be4243ec2acace958}
+Boolean storing whether to use point source or not. \index{maxwell@{maxwell}!use\+PW@{use\+PW}}
+\index{use\+PW@{use\+PW}!maxwell@{maxwell}}
+\subsubsection[{\texorpdfstring{use\+PW}{usePW}}]{\setlength{\rightskip}{0pt plus 5cm}bool maxwell\+::use\+PW}\hypertarget{classmaxwell_a356235214e2e5843d2ffe2c8e4214ef8}{}\label{classmaxwell_a356235214e2e5843d2ffe2c8e4214ef8}
+Boolean storing whether to use plane-\/wave source or not. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/src/solvers/\hyperlink{maxwell_8h}{maxwell.\+h}\item 
+/home/rishabh/\+Luxum/src/solvers/\hyperlink{maxwell_8cc}{maxwell.\+cc}\item 
+/home/rishabh/\+Luxum/src/solvers/three\+\_\+dim/\hyperlink{maxwell__three__dim_8cc}{maxwell\+\_\+three\+\_\+dim.\+cc}\item 
+/home/rishabh/\+Luxum/src/solvers/three\+\_\+dim/\hyperlink{maxwell__three__dim__pml_8cc}{maxwell\+\_\+three\+\_\+dim\+\_\+pml.\+cc}\item 
+/home/rishabh/\+Luxum/src/solvers/two\+\_\+dim/\hyperlink{maxwell__two__dim_8cc}{maxwell\+\_\+two\+\_\+dim.\+cc}\item 
+/home/rishabh/\+Luxum/src/solvers/two\+\_\+dim/\hyperlink{maxwell__two__dim__pml_8cc}{maxwell\+\_\+two\+\_\+dim\+\_\+pml.\+cc}\end{DoxyCompactItemize}

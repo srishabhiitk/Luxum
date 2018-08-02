@@ -1,0 +1,20 @@
+<map id="/home/rishabh/Luxum/lib/parallel/parallel.h" name="/home/rishabh/Luxum/lib/parallel/parallel.h">
+<area shape="rect" id="node2" href="$main_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/main.cc" alt="" coords="5,549,152,590"/>
+<area shape="rect" id="node3" href="$maxwell_8h.html" title="/home/rishabh/Luxum\l/src/solvers/maxwell.h" alt="" coords="382,452,535,493"/>
+<area shape="rect" id="node9" href="$grid_8h.html" title="/home/rishabh/Luxum\l/lib/parallel/grid.h" alt="" coords="353,95,500,136"/>
+<area shape="rect" id="node17" href="$mpidata_8h.html" title="/home/rishabh/Luxum\l/lib/parallel/mpidata.h" alt="" coords="489,184,636,225"/>
+<area shape="rect" id="node19" href="$parallel_8cc.html" title="/home/rishabh/Luxum\l/lib/parallel/parallel.cc" alt="" coords="836,95,983,136"/>
+<area shape="rect" id="node4" href="$maxwell_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/maxwell.cc" alt="" coords="757,549,917,590"/>
+<area shape="rect" id="node5" href="$maxwell__three__dim_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/three_dim\l/maxwell_three_dim.cc" alt="" coords="942,541,1098,597"/>
+<area shape="rect" id="node6" href="$maxwell__three__dim__pml_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/three_dim\l/maxwell_three_dim_pml.cc" alt="" coords="176,541,360,597"/>
+<area shape="rect" id="node7" href="$maxwell__two__dim_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/two_dim\l/maxwell_two_dim.cc" alt="" coords="385,541,533,597"/>
+<area shape="rect" id="node8" href="$maxwell__two__dim__pml_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/two_dim\l/maxwell_two_dim_pml.cc" alt="" coords="557,541,733,597"/>
+<area shape="rect" id="node10" href="$field_8h.html" title="/home/rishabh/Luxum\l/lib/field/field.h" alt="" coords="388,273,535,315"/>
+<area shape="rect" id="node12" href="$vfield_8h.html" title="/home/rishabh/Luxum\l/lib/field/vfield.h" alt="" coords="167,363,313,404"/>
+<area shape="rect" id="node14" href="$fileio_8h.html" title="/home/rishabh/Luxum\l/lib/io/fileio.h" alt="" coords="560,363,707,404"/>
+<area shape="rect" id="node16" href="$grid_8cc.html" title="/home/rishabh/Luxum\l/lib/parallel/grid.cc" alt="" coords="217,184,364,225"/>
+<area shape="rect" id="node11" href="$field_8cc.html" title="/home/rishabh/Luxum\l/lib/field/field.cc" alt="" coords="388,363,535,404"/>
+<area shape="rect" id="node13" href="$vfield_8cc.html" title="/home/rishabh/Luxum\l/lib/field/vfield.cc" alt="" coords="167,452,313,493"/>
+<area shape="rect" id="node15" href="$fileio_8cc.html" title="/home/rishabh/Luxum\l/lib/io/fileio.cc" alt="" coords="560,452,707,493"/>
+<area shape="rect" id="node18" href="$mpidata_8cc.html" title="/home/rishabh/Luxum\l/lib/parallel/mpidata.cc" alt="" coords="559,273,711,315"/>
+</map>

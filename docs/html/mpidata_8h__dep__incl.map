@@ -1,0 +1,16 @@
+<map id="/home/rishabh/Luxum/lib/parallel/mpidata.h" name="/home/rishabh/Luxum/lib/parallel/mpidata.h">
+<area shape="rect" id="node2" href="$field_8h.html" title="/home/rishabh/Luxum\l/lib/field/field.h" alt="" coords="377,95,524,136"/>
+<area shape="rect" id="node15" href="$mpidata_8cc.html" title="/home/rishabh/Luxum\l/lib/parallel/mpidata.cc" alt="" coords="548,95,700,136"/>
+<area shape="rect" id="node3" href="$field_8cc.html" title="/home/rishabh/Luxum\l/lib/field/field.cc" alt="" coords="207,184,353,225"/>
+<area shape="rect" id="node4" href="$vfield_8h.html" title="/home/rishabh/Luxum\l/lib/field/vfield.h" alt="" coords="377,184,524,225"/>
+<area shape="rect" id="node13" href="$fileio_8h.html" title="/home/rishabh/Luxum\l/lib/io/fileio.h" alt="" coords="548,184,695,225"/>
+<area shape="rect" id="node5" href="$maxwell_8h.html" title="/home/rishabh/Luxum\l/src/solvers/maxwell.h" alt="" coords="459,273,613,315"/>
+<area shape="rect" id="node12" href="$vfield_8cc.html" title="/home/rishabh/Luxum\l/lib/field/vfield.cc" alt="" coords="288,273,435,315"/>
+<area shape="rect" id="node6" href="$main_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/main.cc" alt="" coords="5,370,152,411"/>
+<area shape="rect" id="node7" href="$maxwell_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/maxwell.cc" alt="" coords="176,370,336,411"/>
+<area shape="rect" id="node8" href="$maxwell__three__dim_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/three_dim\l/maxwell_three_dim.cc" alt="" coords="361,363,517,419"/>
+<area shape="rect" id="node9" href="$maxwell__three__dim__pml_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/three_dim\l/maxwell_three_dim_pml.cc" alt="" coords="541,363,725,419"/>
+<area shape="rect" id="node10" href="$maxwell__two__dim_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/two_dim\l/maxwell_two_dim.cc" alt="" coords="750,363,898,419"/>
+<area shape="rect" id="node11" href="$maxwell__two__dim__pml_8cc.html" title="/home/rishabh/Luxum\l/src/solvers/two_dim\l/maxwell_two_dim_pml.cc" alt="" coords="923,363,1099,419"/>
+<area shape="rect" id="node14" href="$fileio_8cc.html" title="/home/rishabh/Luxum\l/lib/io/fileio.cc" alt="" coords="637,273,784,315"/>
+</map>

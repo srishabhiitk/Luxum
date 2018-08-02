@@ -1,0 +1,126 @@
+\hypertarget{classgrid}{}\section{grid Class Reference}
+\label{classgrid}\index{grid@{grid}}
+
+
+Contains information about local colloquated indices for specific M\+PI nodes.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/grid.\+h\char`\"{}}
+
+
+
+Collaboration diagram for grid\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classgrid__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgrid_ab650e567f3921803ad1a065bd924dae5}{grid} (const \hyperlink{classreader}{reader} \&sol\+Param, \hyperlink{classparallel}{parallel} \&parallel\+Data)
+\begin{DoxyCompactList}\small\item\em Constructor of the grid class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classreader}{reader} \& \hyperlink{classgrid_a0c044c1334ceb75cd73cfe1a1b5d471e}{input\+Data}
+\item 
+const \hyperlink{classparallel}{parallel} \& \hyperlink{classgrid_a601c3c843a2152673af275a88a140c5f}{rank\+Data}
+\item 
+int \hyperlink{classgrid_a3f952029096b1590f4c1513405304153}{local\+\_\+colloq\+\_\+x}
+\item 
+int \hyperlink{classgrid_ab6ebb66bae61b6993443e5d0a3dd1f66}{local\+\_\+colloq\+\_\+y}
+\item 
+int \hyperlink{classgrid_af91a948b95d0a97f7a75551f9500c38e}{local\+\_\+colloq\+\_\+z}
+\item 
+int \hyperlink{classgrid_a099a1e0ad70bd32866294969e886e9d0}{colloq\+\_\+start\+\_\+index\+\_\+x}
+\item 
+int \hyperlink{classgrid_a562323a98093d6eaf640785d79334208}{colloq\+\_\+start\+\_\+index\+\_\+y}
+\item 
+int \hyperlink{classgrid_ab729ac896753c9ed4a750ec9af6ccfd3}{colloq\+\_\+start\+\_\+index\+\_\+z}
+\item 
+int \hyperlink{classgrid_aad48d3e38805c0c7dfa070c3fcfe3ffd}{colloq\+\_\+end\+\_\+index\+\_\+x}
+\item 
+int \hyperlink{classgrid_abb0480cb2d7fbb17a95502925d706731}{colloq\+\_\+end\+\_\+index\+\_\+y}
+\item 
+int \hyperlink{classgrid_ad56fd8b3690637ece99545c81e3f6942}{colloq\+\_\+end\+\_\+index\+\_\+z}
+\item 
+bool \hyperlink{classgrid_ad0060eb1dc9b2fef5e4642b5b0ef6d5e}{is\+Planar}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains information about local colloquated indices for specific M\+PI nodes. 
+
+The datamembers of this class contain information about how and which points are located in specific M\+PI node with respect to full global arrays. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{grid@{grid}!grid@{grid}}
+\index{grid@{grid}!grid@{grid}}
+\subsubsection[{\texorpdfstring{grid(const reader \&sol\+Param, parallel \&parallel\+Data)}{grid(const reader &solParam, parallel &parallelData)}}]{\setlength{\rightskip}{0pt plus 5cm}grid\+::grid (
+\begin{DoxyParamCaption}
+\item[{const {\bf reader} \&}]{sol\+Param, }
+\item[{{\bf parallel} \&}]{parallel\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{classgrid_ab650e567f3921803ad1a065bd924dae5}{}\label{classgrid_ab650e567f3921803ad1a065bd924dae5}
+
+
+Constructor of the grid class. 
+
+Initializes the datamembers of grid class such the number of colloquated points, stating and ending index of colloquated points for specific M\+PI nodes. This is calculated using the information from object of parallel class which contains relevant information like number of available processors in different dimensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sol\+Param} & is a const reference to the global data contained in the reader class \\
+\hline
+{\em parallel\+Data} & is a reference to the object of parallel class \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{grid@{grid}!colloq\+\_\+end\+\_\+index\+\_\+x@{colloq\+\_\+end\+\_\+index\+\_\+x}}
+\index{colloq\+\_\+end\+\_\+index\+\_\+x@{colloq\+\_\+end\+\_\+index\+\_\+x}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+end\+\_\+index\+\_\+x}{colloq_end_index_x}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+end\+\_\+index\+\_\+x}\hypertarget{classgrid_aad48d3e38805c0c7dfa070c3fcfe3ffd}{}\label{classgrid_aad48d3e38805c0c7dfa070c3fcfe3ffd}
+Stores the ending global index in X-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!colloq\+\_\+end\+\_\+index\+\_\+y@{colloq\+\_\+end\+\_\+index\+\_\+y}}
+\index{colloq\+\_\+end\+\_\+index\+\_\+y@{colloq\+\_\+end\+\_\+index\+\_\+y}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+end\+\_\+index\+\_\+y}{colloq_end_index_y}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+end\+\_\+index\+\_\+y}\hypertarget{classgrid_abb0480cb2d7fbb17a95502925d706731}{}\label{classgrid_abb0480cb2d7fbb17a95502925d706731}
+Stores the ending global index in Y-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!colloq\+\_\+end\+\_\+index\+\_\+z@{colloq\+\_\+end\+\_\+index\+\_\+z}}
+\index{colloq\+\_\+end\+\_\+index\+\_\+z@{colloq\+\_\+end\+\_\+index\+\_\+z}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+end\+\_\+index\+\_\+z}{colloq_end_index_z}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+end\+\_\+index\+\_\+z}\hypertarget{classgrid_ad56fd8b3690637ece99545c81e3f6942}{}\label{classgrid_ad56fd8b3690637ece99545c81e3f6942}
+Stores the ending global index in Z-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!colloq\+\_\+start\+\_\+index\+\_\+x@{colloq\+\_\+start\+\_\+index\+\_\+x}}
+\index{colloq\+\_\+start\+\_\+index\+\_\+x@{colloq\+\_\+start\+\_\+index\+\_\+x}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+start\+\_\+index\+\_\+x}{colloq_start_index_x}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+start\+\_\+index\+\_\+x}\hypertarget{classgrid_a099a1e0ad70bd32866294969e886e9d0}{}\label{classgrid_a099a1e0ad70bd32866294969e886e9d0}
+Stores the starting global index in X-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!colloq\+\_\+start\+\_\+index\+\_\+y@{colloq\+\_\+start\+\_\+index\+\_\+y}}
+\index{colloq\+\_\+start\+\_\+index\+\_\+y@{colloq\+\_\+start\+\_\+index\+\_\+y}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+start\+\_\+index\+\_\+y}{colloq_start_index_y}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+start\+\_\+index\+\_\+y}\hypertarget{classgrid_a562323a98093d6eaf640785d79334208}{}\label{classgrid_a562323a98093d6eaf640785d79334208}
+Stores the starting global index in Y-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!colloq\+\_\+start\+\_\+index\+\_\+z@{colloq\+\_\+start\+\_\+index\+\_\+z}}
+\index{colloq\+\_\+start\+\_\+index\+\_\+z@{colloq\+\_\+start\+\_\+index\+\_\+z}!grid@{grid}}
+\subsubsection[{\texorpdfstring{colloq\+\_\+start\+\_\+index\+\_\+z}{colloq_start_index_z}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::colloq\+\_\+start\+\_\+index\+\_\+z}\hypertarget{classgrid_ab729ac896753c9ed4a750ec9af6ccfd3}{}\label{classgrid_ab729ac896753c9ed4a750ec9af6ccfd3}
+Stores the starting global index in Z-\/direction for colloquated points for a specific M\+PI node. \index{grid@{grid}!input\+Data@{input\+Data}}
+\index{input\+Data@{input\+Data}!grid@{grid}}
+\subsubsection[{\texorpdfstring{input\+Data}{inputData}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf reader}\& grid\+::input\+Data}\hypertarget{classgrid_a0c044c1334ceb75cd73cfe1a1b5d471e}{}\label{classgrid_a0c044c1334ceb75cd73cfe1a1b5d471e}
+A const reference to the global variables stored in the reader class to access user set parameters \index{grid@{grid}!is\+Planar@{is\+Planar}}
+\index{is\+Planar@{is\+Planar}!grid@{grid}}
+\subsubsection[{\texorpdfstring{is\+Planar}{isPlanar}}]{\setlength{\rightskip}{0pt plus 5cm}bool grid\+::is\+Planar}\hypertarget{classgrid_ad0060eb1dc9b2fef5e4642b5b0ef6d5e}{}\label{classgrid_ad0060eb1dc9b2fef5e4642b5b0ef6d5e}
+Boolean to store whether the grid is two-\/dimensional or not. \index{grid@{grid}!local\+\_\+colloq\+\_\+x@{local\+\_\+colloq\+\_\+x}}
+\index{local\+\_\+colloq\+\_\+x@{local\+\_\+colloq\+\_\+x}!grid@{grid}}
+\subsubsection[{\texorpdfstring{local\+\_\+colloq\+\_\+x}{local_colloq_x}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::local\+\_\+colloq\+\_\+x}\hypertarget{classgrid_a3f952029096b1590f4c1513405304153}{}\label{classgrid_a3f952029096b1590f4c1513405304153}
+Stores the number of colloquated points in X-\/direction for a specific M\+PI node. \index{grid@{grid}!local\+\_\+colloq\+\_\+y@{local\+\_\+colloq\+\_\+y}}
+\index{local\+\_\+colloq\+\_\+y@{local\+\_\+colloq\+\_\+y}!grid@{grid}}
+\subsubsection[{\texorpdfstring{local\+\_\+colloq\+\_\+y}{local_colloq_y}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::local\+\_\+colloq\+\_\+y}\hypertarget{classgrid_ab6ebb66bae61b6993443e5d0a3dd1f66}{}\label{classgrid_ab6ebb66bae61b6993443e5d0a3dd1f66}
+Stores the number of colloquated points in Y-\/direction for a specific M\+PI node. \index{grid@{grid}!local\+\_\+colloq\+\_\+z@{local\+\_\+colloq\+\_\+z}}
+\index{local\+\_\+colloq\+\_\+z@{local\+\_\+colloq\+\_\+z}!grid@{grid}}
+\subsubsection[{\texorpdfstring{local\+\_\+colloq\+\_\+z}{local_colloq_z}}]{\setlength{\rightskip}{0pt plus 5cm}int grid\+::local\+\_\+colloq\+\_\+z}\hypertarget{classgrid_af91a948b95d0a97f7a75551f9500c38e}{}\label{classgrid_af91a948b95d0a97f7a75551f9500c38e}
+Stores the number of colloquated points in Z-\/direction for a specific M\+PI node. \index{grid@{grid}!rank\+Data@{rank\+Data}}
+\index{rank\+Data@{rank\+Data}!grid@{grid}}
+\subsubsection[{\texorpdfstring{rank\+Data}{rankData}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf parallel}\& grid\+::rank\+Data}\hypertarget{classgrid_a601c3c843a2152673af275a88a140c5f}{}\label{classgrid_a601c3c843a2152673af275a88a140c5f}
+A reference to the global variables stored in the parallel class to access M\+PI related parameters 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{grid_8h}{grid.\+h}\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{grid_8cc}{grid.\+cc}\end{DoxyCompactItemize}

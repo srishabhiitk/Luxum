@@ -1,0 +1,191 @@
+\hypertarget{classvfield}{}\section{vfield Class Reference}
+\label{classvfield}\index{vfield@{vfield}}
+
+
+A class which abstracts concept of a vector field for Yee\textquotesingle{}s algorithm.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/vfield.\+h\char`\"{}}
+
+
+
+Collaboration diagram for vfield\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{classvfield__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvfield_a27ee08c3fd8e79d0afcaa80d63108264}{vfield} (const \hyperlink{classgrid}{grid} \&\hyperlink{classvfield_ae7bbaed334e2fc7840b45e4a89f408cc}{grid\+Data}, bool is\+Face\+Centered\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor of the vfield class. \end{DoxyCompactList}\item 
+void \hyperlink{classvfield_aa4cc7ce34cee431cc2673a53bc8ab531}{curl\+\_\+3d} (\hyperlink{classvfield}{vfield} $\ast$curl)
+\begin{DoxyCompactList}\small\item\em Calculates curl of vector field of corresponding to object calling it. \end{DoxyCompactList}\item 
+void \hyperlink{classvfield_a8571bdf892c40c0b040a5d90da64ca4e}{curl\+\_\+3d\+\_\+adv} (\hyperlink{classvfield}{vfield} $\ast$curl1, \hyperlink{classvfield}{vfield} $\ast$curl2)
+\begin{DoxyCompactList}\small\item\em Calculates curl of vector field of corresponding to object calling it. \end{DoxyCompactList}\item 
+void \hyperlink{classvfield_aae68aee505a3274535d27ae66d298f86}{curl\+\_\+planar} (\hyperlink{classvfield}{vfield} $\ast$curl)
+\begin{DoxyCompactList}\small\item\em Calculates curl of vector field of corresponding to object calling it for planar grid. \end{DoxyCompactList}\item 
+void \hyperlink{classvfield_a86485536aa1a3eb0eea5da245c4aa90c}{curl\+\_\+planar\+\_\+adv} (\hyperlink{classvfield}{vfield} $\ast$curl1, \hyperlink{classvfield}{vfield} $\ast$curl2)
+\begin{DoxyCompactList}\small\item\em Calculates curl of vector field of corresponding to object calling it for planar grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfield}{field} $\ast$ \hyperlink{classvfield_a71dd043fcada500d160a47dc278d0534}{Vx}
+\item 
+\hyperlink{classfield}{field} $\ast$ \hyperlink{classvfield_a74783f59f431458ba8fe01c5ff02a529}{Vy}
+\item 
+\hyperlink{classfield}{field} $\ast$ \hyperlink{classvfield_a796fb8f07f64efdf33673579a930cb66}{Vz}
+\item 
+const \hyperlink{classgrid}{grid} \& \hyperlink{classvfield_ae7bbaed334e2fc7840b45e4a89f408cc}{grid\+Data}
+\item 
+bool \hyperlink{classvfield_a140347737e87ffc51d2f576f8abeeb36}{is\+Face\+Centered}
+\item 
+bool \hyperlink{classvfield_a0a84cbcee0423b3b8c1bd0e2f3158e3c}{is\+Planar}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which abstracts concept of a vector field for Yee\textquotesingle{}s algorithm. 
+
+Yee\textquotesingle{}s algorithm requires E and H vector fields at specific lattice points -\/ face center and edge center. This class abtracts these fields out. The type of field can be specified using input parameter whether it is face centered or not.
+
+The class also defines actions that can be performed on these vector fields. For now, the actions are only limited curl functions, but more can be easily added. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{vfield@{vfield}!vfield@{vfield}}
+\index{vfield@{vfield}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{vfield(const grid \&grid\+Data, bool is\+Face\+Centered\+\_\+)}{vfield(const grid &gridData, bool isFaceCentered_)}}]{\setlength{\rightskip}{0pt plus 5cm}vfield\+::vfield (
+\begin{DoxyParamCaption}
+\item[{const {\bf grid} \&}]{grid\+Data, }
+\item[{bool}]{is\+Face\+Centered\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{classvfield_a27ee08c3fd8e79d0afcaa80d63108264}{}\label{classvfield_a27ee08c3fd8e79d0afcaa80d63108264}
+
+
+Constructor of the vfield class. 
+
+Initializes the data members, especially the pointers to scalar field objects are intialised according to need.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Data} & is a constant reference to grid information. \\
+\hline
+{\em is\+Face\+Centered\+\_\+} & is a boolean representing whether the vector field is face centered. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{vfield@{vfield}!curl\+\_\+3d@{curl\+\_\+3d}}
+\index{curl\+\_\+3d@{curl\+\_\+3d}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{curl\+\_\+3d(vfield $\ast$curl)}{curl_3d(vfield *curl)}}]{\setlength{\rightskip}{0pt plus 5cm}void vfield\+::curl\+\_\+3d (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl}
+\end{DoxyParamCaption}
+)}\hypertarget{classvfield_aa4cc7ce34cee431cc2673a53bc8ab531}{}\label{classvfield_aa4cc7ce34cee431cc2673a53bc8ab531}
+
+
+Calculates curl of vector field of corresponding to object calling it. 
+
+The function takes one argument of vfield class where it stores the curl. The curl of a face centered vector field will be edge centered and vice-\/versa. The curl is only calculated if the vfield object passed and vfield object calling are of different types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl} & is a pointer to vfield object where the calculated curl will be stored. \\
+\hline
+\end{DoxyParams}
+\index{vfield@{vfield}!curl\+\_\+3d\+\_\+adv@{curl\+\_\+3d\+\_\+adv}}
+\index{curl\+\_\+3d\+\_\+adv@{curl\+\_\+3d\+\_\+adv}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{curl\+\_\+3d\+\_\+adv(vfield $\ast$curl1, vfield $\ast$curl2)}{curl_3d_adv(vfield *curl1, vfield *curl2)}}]{\setlength{\rightskip}{0pt plus 5cm}void vfield\+::curl\+\_\+3d\+\_\+adv (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl1, }
+\item[{{\bf vfield} $\ast$}]{curl2}
+\end{DoxyParamCaption}
+)}\hypertarget{classvfield_a8571bdf892c40c0b040a5d90da64ca4e}{}\label{classvfield_a8571bdf892c40c0b040a5d90da64ca4e}
+
+
+Calculates curl of vector field of corresponding to object calling it. 
+
+The function takes two argument of vfield class where it stores two parts of the curl. The two parts of the curl correspond to two final values corresponding to different dimensions which need to be subtracted to get the original curl in a given dimension. The first parameter contains the positive part of the curl. The second parameter contains the negative part of the curl. Actual curl = curl1 -\/ curl2
+
+The curl of a face centered vector field will be edge centered and vice-\/versa. The curl is only calculated if the vfield object passed and vfield object calling are of different types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl1} & is a pointer to vfield object where positive part of the calculated curl will be stored. \\
+\hline
+{\em curl2} & is a pointer to vfield object where negative part of the calculated curl will be stored. \\
+\hline
+\end{DoxyParams}
+\index{vfield@{vfield}!curl\+\_\+planar@{curl\+\_\+planar}}
+\index{curl\+\_\+planar@{curl\+\_\+planar}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{curl\+\_\+planar(vfield $\ast$curl)}{curl_planar(vfield *curl)}}]{\setlength{\rightskip}{0pt plus 5cm}void vfield\+::curl\+\_\+planar (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl}
+\end{DoxyParamCaption}
+)}\hypertarget{classvfield_aae68aee505a3274535d27ae66d298f86}{}\label{classvfield_aae68aee505a3274535d27ae66d298f86}
+
+
+Calculates curl of vector field of corresponding to object calling it for planar grid. 
+
+The function takes one argument of vfield class where it stores the curl. The curl of a face centered vector field will be edge centered and vice-\/versa. The curl is only calculated if the vfield object passed and vfield object calling are of different types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl} & is a pointer to vfield object where the calculated curl will be stored. \\
+\hline
+\end{DoxyParams}
+\index{vfield@{vfield}!curl\+\_\+planar\+\_\+adv@{curl\+\_\+planar\+\_\+adv}}
+\index{curl\+\_\+planar\+\_\+adv@{curl\+\_\+planar\+\_\+adv}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{curl\+\_\+planar\+\_\+adv(vfield $\ast$curl1, vfield $\ast$curl2)}{curl_planar_adv(vfield *curl1, vfield *curl2)}}]{\setlength{\rightskip}{0pt plus 5cm}void vfield\+::curl\+\_\+planar\+\_\+adv (
+\begin{DoxyParamCaption}
+\item[{{\bf vfield} $\ast$}]{curl1, }
+\item[{{\bf vfield} $\ast$}]{curl2}
+\end{DoxyParamCaption}
+)}\hypertarget{classvfield_a86485536aa1a3eb0eea5da245c4aa90c}{}\label{classvfield_a86485536aa1a3eb0eea5da245c4aa90c}
+
+
+Calculates curl of vector field of corresponding to object calling it for planar grid. 
+
+The function takes two argument of vfield class where it stores two parts of the curl. The two parts of the curl correspond to two final values corresponding to different dimensions which need to be subtracted to get the original curl in a given dimension. The first parameter contains the positive part of the curl. The second parameter contains the negative part of the curl. Actual curl = curl1 -\/ curl2
+
+The curl of a face centered vector field will be edge centered and vice-\/versa. The curl is only calculated if the vfield object passed and vfield object calling are of different types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em curl1} & is a pointer to vfield object where positive part of the calculated curl will be stored. \\
+\hline
+{\em curl2} & is a pointer to vfield object where negative part of the calculated curl will be stored. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{vfield@{vfield}!grid\+Data@{grid\+Data}}
+\index{grid\+Data@{grid\+Data}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{grid\+Data}{gridData}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf grid}\& vfield\+::grid\+Data}\hypertarget{classvfield_ae7bbaed334e2fc7840b45e4a89f408cc}{}\label{classvfield_ae7bbaed334e2fc7840b45e4a89f408cc}
+A constant reference to the grid information. \index{vfield@{vfield}!is\+Face\+Centered@{is\+Face\+Centered}}
+\index{is\+Face\+Centered@{is\+Face\+Centered}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{is\+Face\+Centered}{isFaceCentered}}]{\setlength{\rightskip}{0pt plus 5cm}bool vfield\+::is\+Face\+Centered}\hypertarget{classvfield_a140347737e87ffc51d2f576f8abeeb36}{}\label{classvfield_a140347737e87ffc51d2f576f8abeeb36}
+Boolean representing whether the vector field is face centered. \index{vfield@{vfield}!is\+Planar@{is\+Planar}}
+\index{is\+Planar@{is\+Planar}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{is\+Planar}{isPlanar}}]{\setlength{\rightskip}{0pt plus 5cm}bool vfield\+::is\+Planar}\hypertarget{classvfield_a0a84cbcee0423b3b8c1bd0e2f3158e3c}{}\label{classvfield_a0a84cbcee0423b3b8c1bd0e2f3158e3c}
+Boolean representing whether the grid is planar or two dimensional. \index{vfield@{vfield}!Vx@{Vx}}
+\index{Vx@{Vx}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{Vx}{Vx}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf field}$\ast$ vfield\+::\+Vx}\hypertarget{classvfield_a71dd043fcada500d160a47dc278d0534}{}\label{classvfield_a71dd043fcada500d160a47dc278d0534}
+Pointer to scalar field object which contains X component. \index{vfield@{vfield}!Vy@{Vy}}
+\index{Vy@{Vy}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{Vy}{Vy}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf field}$\ast$ vfield\+::\+Vy}\hypertarget{classvfield_a74783f59f431458ba8fe01c5ff02a529}{}\label{classvfield_a74783f59f431458ba8fe01c5ff02a529}
+Pointer to scalar field object which contains Y component. \index{vfield@{vfield}!Vz@{Vz}}
+\index{Vz@{Vz}!vfield@{vfield}}
+\subsubsection[{\texorpdfstring{Vz}{Vz}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf field}$\ast$ vfield\+::\+Vz}\hypertarget{classvfield_a796fb8f07f64efdf33673579a930cb66}{}\label{classvfield_a796fb8f07f64efdf33673579a930cb66}
+Pointer to scalar field object which contains Z component. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/field/\hyperlink{vfield_8h}{vfield.\+h}\item 
+/home/rishabh/\+Luxum/lib/field/\hyperlink{vfield_8cc}{vfield.\+cc}\end{DoxyCompactItemize}

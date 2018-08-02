@@ -1,0 +1,6 @@
+<map id="field" name="field">
+<area shape="rect" id="node2" href="$classgrid.html" title="Contains information about local colloquated indices for specific MPI nodes. " alt="" coords="59,95,101,121"/>
+<area shape="rect" id="node3" href="$classreader.html" title="Contains all the global variables set by the user through the yaml file. " alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node4" href="$classparallel.html" title="Class for all the global variables and functions related to parallelization. " alt="" coords="95,5,158,32"/>
+<area shape="rect" id="node5" href="$classmpidata.html" title="Class to store MPI derived datatypes for individual arrays. " alt="" coords="130,95,198,121"/>
+</map>

@@ -1,0 +1,106 @@
+\hypertarget{classmpidata}{}\section{mpidata Class Reference}
+\label{classmpidata}\index{mpidata@{mpidata}}
+
+
+Class to store M\+PI derived datatypes for individual arrays.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/mpidata.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmpidata_adc5f562bf45ae213dded9c03f7d5195b}{mpidata} (blitz\+::\+Array$<$ double, 3 $>$ input\+Array, bool x\+Stag\+\_\+, bool y\+Stag\+\_\+, const \hyperlink{classparallel}{parallel} \&parallel\+Data, const \hyperlink{classgrid}{grid} \&grid\+Data\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor of the mpidata class. \end{DoxyCompactList}\item 
+void \hyperlink{classmpidata_aebe34d26110d4efa596e8b836de09bf1}{create\+Subarrays} (const bool x\+Stag, const bool y\+Stag, const bool z\+Stag)
+\begin{DoxyCompactList}\small\item\em Function to create the subarray M\+P\+I\+\_\+\+Datatypes. \end{DoxyCompactList}\item 
+void \hyperlink{classmpidata_a8c722bece264a65a06c1843ab0ae9ae3}{sync\+Data} ()
+\begin{DoxyCompactList}\small\item\em Function to sync data across all M\+PI nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to store M\+PI derived datatypes for individual arrays. 
+
+Since the solver uses staggered grids, the data of scalar fields are stored in arrays of different sizes in each direction depending on whether the field is staggered or not in that direction. As a result, the limits of the sub-\/arrays to be sent across inter-\/processor boundaries is different for different arrays. Hence the {\bfseries mpidata} class contains M\+P\+I\+\_\+\+S\+U\+B\+A\+R\+R\+AY derived datatypes to be initialized along with different fields in order to store their sub-\/arrays for inter-\/processor communication. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{mpidata@{mpidata}!mpidata@{mpidata}}
+\index{mpidata@{mpidata}!mpidata@{mpidata}}
+\subsubsection[{\texorpdfstring{mpidata(blitz\+::\+Array$<$ double, 3 $>$ input\+Array, bool x\+Stag\+\_\+, bool y\+Stag\+\_\+, const parallel \&parallel\+Data, const grid \&grid\+Data\+\_\+)}{mpidata(blitz::Array< double, 3 > inputArray, bool xStag_, bool yStag_, const parallel &parallelData, const grid &gridData_)}}]{\setlength{\rightskip}{0pt plus 5cm}mpidata\+::mpidata (
+\begin{DoxyParamCaption}
+\item[{blitz\+::\+Array$<$ double, 3 $>$}]{input\+Array, }
+\item[{bool}]{x\+Stag, }
+\item[{bool}]{y\+Stag, }
+\item[{const {\bf parallel} \&}]{parallel\+Data, }
+\item[{const {\bf grid} \&}]{grid\+Data\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{classmpidata_adc5f562bf45ae213dded9c03f7d5195b}{}\label{classmpidata_adc5f562bf45ae213dded9c03f7d5195b}
+
+
+Constructor of the mpidata class. 
+
+The short constructor of mpidata class merely resizes the array of share\+Ranks and M\+P\+I\+\_\+\+Request datatypes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Array} & is the blitz array whose sub-\/arrays have to be created and synchronised across processors. \\
+\hline
+{\em x\+Stag} & is boolean representing whether the scalar field provided is staggered in X direction. \\
+\hline
+{\em y\+Stag} & is boolean representing whether the scalar field provided is staggered in Y direction. \\
+\hline
+{\em parallel\+Data} & is a const reference to the global data contained in the parallel class. \\
+\hline
+{\em grid\+Data} & is a const reference to the grid information. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{mpidata@{mpidata}!create\+Subarrays@{create\+Subarrays}}
+\index{create\+Subarrays@{create\+Subarrays}!mpidata@{mpidata}}
+\subsubsection[{\texorpdfstring{create\+Subarrays(const bool x\+Stag, const bool y\+Stag, const bool z\+Stag)}{createSubarrays(const bool xStag, const bool yStag, const bool zStag)}}]{\setlength{\rightskip}{0pt plus 5cm}void mpidata\+::create\+Subarrays (
+\begin{DoxyParamCaption}
+\item[{const bool}]{x\+Stag, }
+\item[{const bool}]{y\+Stag, }
+\item[{const bool}]{z\+Stag}
+\end{DoxyParamCaption}
+)}\hypertarget{classmpidata_aebe34d26110d4efa596e8b836de09bf1}{}\label{classmpidata_aebe34d26110d4efa596e8b836de09bf1}
+
+
+Function to create the subarray M\+P\+I\+\_\+\+Datatypes. 
+
+Function calculates the required subarrays that need to be shared across M\+PI nodes and stores them in M\+P\+I\+\_\+\+Datatypes that can simply be used whenever syncing is required.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stag} & is boolean representing whether the scalar field provided is staggered in X direction. \\
+\hline
+{\em y\+Stag} & is boolean representing whether the scalar field provided is staggered in Y direction. \\
+\hline
+{\em z\+Stag} & is boolean representing whether the scalar field provided is staggered in Z direction. \\
+\hline
+\end{DoxyParams}
+\index{mpidata@{mpidata}!sync\+Data@{sync\+Data}}
+\index{sync\+Data@{sync\+Data}!mpidata@{mpidata}}
+\subsubsection[{\texorpdfstring{sync\+Data()}{syncData()}}]{\setlength{\rightskip}{0pt plus 5cm}void mpidata\+::sync\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classmpidata_a8c722bece264a65a06c1843ab0ae9ae3}{}\label{classmpidata_a8c722bece264a65a06c1843ab0ae9ae3}
+
+
+Function to sync data across all M\+PI nodes. 
+
+This is the core function of the mpidata class. The end slices of each sub-\/domain recieves data from their corresponding neighbouring sub-\/domains, while the interior slices of each sub-\/domain sends data to their corresponding neighbouring sub-\/domains.
+
+All the data slices are send as subarray M\+PI derived data-\/types created in the \hyperlink{classmpidata_aebe34d26110d4efa596e8b836de09bf1}{create\+Subarrays} function. As a result, \hyperlink{classmpidata_a8c722bece264a65a06c1843ab0ae9ae3}{sync\+Data} must be called only after the subarrays have been created.
+
+The data transfer is implemented here with a mixture of blocking and non-\/blocking communication calls. The recieves are non-\/blocking, while the sends are blocking. This combination prevents inter-\/processor deadlock. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{mpidata_8h}{mpidata.\+h}\item 
+/home/rishabh/\+Luxum/lib/parallel/\hyperlink{mpidata_8cc}{mpidata.\+cc}\end{DoxyCompactItemize}

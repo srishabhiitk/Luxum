@@ -1,0 +1,115 @@
+\hypertarget{classfileio}{}\section{fileio Class Reference}
+\label{classfileio}\index{fileio@{fileio}}
+
+
+Class to read and write data from and to H\+D\+F5 files.  
+
+
+
+
+{\ttfamily \#include \char`\"{}lib/fileio.\+h\char`\"{}}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfileio_aa2fda45bd859d0a8aa1cde9cada7b31c}{fileio} (const char $\ast$file\+Name, bool read, const \hyperlink{classgrid}{grid} \&mesh, \hyperlink{classfield}{field} $\ast$i\+Field)
+\begin{DoxyCompactList}\small\item\em Constructor of the fileio class. \end{DoxyCompactList}\item 
+void \hyperlink{classfileio_ad225b147a6799b6adaaac5745ff54e1a}{write\+H\+D\+F5} (double t)
+\begin{DoxyCompactList}\small\item\em Function to write scalar field data to H\+D\+F5 file. \end{DoxyCompactList}\item 
+void \hyperlink{classfileio_ad87cac9f787b843aee05c312cec90e59}{read\+H\+D\+F5} (std\+::string dataset\+Name)
+\begin{DoxyCompactList}\small\item\em Function to read data from H\+D\+F5 file. \end{DoxyCompactList}\item 
+void \hyperlink{classfileio_ac1c3e21a9113991a543193197e6b60f9}{close\+Fileio} ()
+\begin{DoxyCompactList}\small\item\em Function to close fileio object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to read and write data from and to H\+D\+F5 files. 
+
+The objects of this class can be made using pointer to a scalar field object. Once the rw\+H\+D\+F5 object is created, the member functions calls make it easy to read and write data.
+
+\hyperlink{classfileio_ad225b147a6799b6adaaac5745ff54e1a}{write\+H\+D\+F5()} writes the current data stored in scalar field in the dataset name passed. \hyperlink{classfileio_ad87cac9f787b843aee05c312cec90e59}{read\+H\+D\+F5()} reads the dataset name passed and writes in scalar field object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{fileio@{fileio}!fileio@{fileio}}
+\index{fileio@{fileio}!fileio@{fileio}}
+\subsubsection[{\texorpdfstring{fileio(const char $\ast$file\+Name, bool read, const grid \&mesh, field $\ast$i\+Field)}{fileio(const char *fileName, bool read, const grid &mesh, field *iField)}}]{\setlength{\rightskip}{0pt plus 5cm}fileio\+::fileio (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file\+Name, }
+\item[{bool}]{read, }
+\item[{const {\bf grid} \&}]{mesh, }
+\item[{{\bf field} $\ast$}]{i\+Field}
+\end{DoxyParamCaption}
+)}\hypertarget{classfileio_aa2fda45bd859d0a8aa1cde9cada7b31c}{}\label{classfileio_aa2fda45bd859d0a8aa1cde9cada7b31c}
+
+
+Constructor of the fileio class. 
+
+The constructor initializes the datamembers according to the scalar field provided. The subarray that is contained in the specific M\+PI node is calculated according to the processor rank. The subarray is size is different for scalar field staggered differently and whether the object will be used to read or write the data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & is the name of file whose data is to be read or in which data is to be written. \\
+\hline
+{\em read} & is a boolean which is set to true if object will be used to read H\+D\+F5 file. \\
+\hline
+{\em mesh} & is a constant reference to grid information. \\
+\hline
+{\em i\+Field} & is a reference to the scalar field object whose data is to be read or written. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{fileio@{fileio}!close\+Fileio@{close\+Fileio}}
+\index{close\+Fileio@{close\+Fileio}!fileio@{fileio}}
+\subsubsection[{\texorpdfstring{close\+Fileio()}{closeFileio()}}]{\setlength{\rightskip}{0pt plus 5cm}void fileio\+::close\+Fileio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classfileio_ac1c3e21a9113991a543193197e6b60f9}{}\label{classfileio_ac1c3e21a9113991a543193197e6b60f9}
+
+
+Function to close fileio object. 
+
+Call this before ending the program. This ensures a smoothly written H\+D\+F5 file. Not calling this may cause file to get correupted. \index{fileio@{fileio}!read\+H\+D\+F5@{read\+H\+D\+F5}}
+\index{read\+H\+D\+F5@{read\+H\+D\+F5}!fileio@{fileio}}
+\subsubsection[{\texorpdfstring{read\+H\+D\+F5(std\+::string dataset\+Name)}{readHDF5(std::string datasetName)}}]{\setlength{\rightskip}{0pt plus 5cm}void fileio\+::read\+H\+D\+F5 (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{dataset\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{classfileio_ad87cac9f787b843aee05c312cec90e59}{}\label{classfileio_ad87cac9f787b843aee05c312cec90e59}
+
+
+Function to read data from H\+D\+F5 file. 
+
+The function reads the dataset from H\+D\+F5 file and writes it to scalar field data. The necessary information is taken from datamember of the object calling the function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset\+Name} & is name of dataset which is to be read. \\
+\hline
+\end{DoxyParams}
+\index{fileio@{fileio}!write\+H\+D\+F5@{write\+H\+D\+F5}}
+\index{write\+H\+D\+F5@{write\+H\+D\+F5}!fileio@{fileio}}
+\subsubsection[{\texorpdfstring{write\+H\+D\+F5(double t)}{writeHDF5(double t)}}]{\setlength{\rightskip}{0pt plus 5cm}void fileio\+::write\+H\+D\+F5 (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classfileio_ad225b147a6799b6adaaac5745ff54e1a}{}\label{classfileio_ad225b147a6799b6adaaac5745ff54e1a}
+
+
+Function to write scalar field data to H\+D\+F5 file. 
+
+The function write the data to scalar field. The necessary information is taken from datamember of the object calling the function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & is dataset number which can be changed for subsequent writes at different time steps. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/rishabh/\+Luxum/lib/io/\hyperlink{fileio_8h}{fileio.\+h}\item 
+/home/rishabh/\+Luxum/lib/io/\hyperlink{fileio_8cc}{fileio.\+cc}\end{DoxyCompactItemize}
