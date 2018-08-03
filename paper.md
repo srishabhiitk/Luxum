@@ -24,36 +24,6 @@ bibliography: paper.bib
 
 # Summary
 
-In our modern world, electromagnetic fields (EM fields) are being employed in many new technologies ranging 
-from common devices like cell phones and microwaves to laboratory equipment like lasers. The 
-research in further development of these applications and, also, development of new applications 
-based on EM fields
----
-title: 'Luxum: A parallel C++ library for FDTD solutions to Maxwell equations'
-tags:
-  - C++
-  - parallel
-  - finite difference
-  - time domain
-  - Maxwell
-authors:
-  - name: Rishabh Sahu
-    orcid: 0000-0002-8888-2698
-    affiliation: "1"
-    email: srishabh@iitk.ac.in
-  - name: Mahendra Kumar Verma
-    orcid: 0000-0002-3380-4561
-    affiliation: "1"
-    email: mkv@iitk.ac.in
-affiliations:
- - name: Department of Physics, Indian Institute of Technology Kanpur, Kanpur, UP 208016, India
-   index: 1
-date: 3 August 2018
-bibliography: paper.bib
----
-
-# Summary
-
 In our modern world, electromagnetic fields (EM fields) are being employed in many new technologies ranging
 from common devices like cell phones and microwaves to laboratory equipment like lasers. The research in further development of these applications and in development of new applications based on EM fields can benefit vastly by studying how light interacts with matter. This allows researchers to pin-point the factors causing errors or inefficiencies. 
 
